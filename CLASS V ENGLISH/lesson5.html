@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wondrous Women - Interactive Learning</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Anek+Telugu:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #016795; /* Peacock Blue */
+            color: white;
+            font-family: 'Comic Neue', cursive;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 50, 100, 0.7);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: #FFD700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            color: #a3d5ff;
+        }
+        
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+        
+        .lesson-section {
+            flex: 2;
+            min-width: 300px;
+            background-color: rgba(0, 60, 120, 0.8);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .vocabulary-section {
+            flex: 1;
+            min-width: 300px;
+            background-color: rgba(0, 60, 120, 0.8);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        h2 {
+            color: #FFD700;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #4CAF50;
+            font-size: 1.8rem;
+        }
+        
+        h3 {
+            color: #a3d5ff;
+            margin: 15px 0 10px;
+            font-size: 1.4rem;
+        }
+        
+        .lesson-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+        
+        .character {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: rgba(0, 80, 150, 0.5);
+            border-radius: 10px;
+            border-left: 5px solid #4CAF50;
+        }
+        
+        .character-name {
+            font-weight: bold;
+            color: #FFD700;
+            font-size: 1.3rem;
+        }
+        
+        .vocabulary-category {
+            margin-bottom: 25px;
+        }
+        
+        .vocab-list {
+            list-style-type: none;
+            padding-left: 10px;
+        }
+        
+        .vocab-list li {
+            padding: 8px 0;
+            border-bottom: 1px dotted rgba(255, 255, 255, 0.2);
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .telugu {
+            font-family: 'Anek Telugu', sans-serif;
+            font-size: 1.1rem;
+            color: #FFC107;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        button {
+            padding: 12px 25px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        button:hover {
+            background-color: #45a049;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .highlight {
+            background-color: rgba(255, 215, 0, 0.3);
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        
+        .active-category {
+            background-color: #FF5722;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 15px;
+            font-size: 1rem;
+            color: #a3d5ff;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            button {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+		<h1>కందులాపురం బడి </h1>
+            <h1>The Wondrous Women</h1>
+            <p class="subtitle">An Interactive Learning Lesson for Class 5 Students</p>
+        </header>
+        <body>
+    <!-- Navigation Menu -->
+    <div class="navigation">
+        <a href="english-class5.html" class="nav-btn back-btn">← ఇంగ్లిష్ పాఠాల విషయసూచిక [వెనుకకు ]</a>
+           </div>
+      
+</body>
+
+        <div class="main-content">
+            <section class="lesson-section">
+                <h2>The Story</h2>
+                <div class="lesson-text">
+                    <p>Hi! I am Ameena. Today we are celebrating our School Day. The jubilant atmosphere at school made me rush towards it. I'm very excited as my parents were invited by the headmaster on the occasion. After a long while, I'm going to see all my friends today. I sat in the first row with my brother in my lap and my parents on either side. The programme started. One after the other my schoolmates performed different activities. But out of all, the role play on the 'Wondrous Women' performed by my friends touched my heart. Now, I would like to share those dialogues with all of you.</p>
+                    
+                    <div class="character">
+                        <div class="character-name">Sravani as Mother Teresa:</div>
+                        <p>Let's all be thankful to God for his mercy. I see God in every human being. Service to human is service to God. 'Helping hands are better than praying lips!' So my dear children! Serve the needy. In service alone you find true happiness. God bless you!</p>
+                    </div>
+                    
+                    <div class="character">
+                        <div class="character-name">Revathi as Kalpana Chawla:</div>
+                        <p>Hello friends! Do you know me? I am Kalpana Chawla, the first Indian woman who travelled in space. I was very excited to view the beautiful blue earth from space. Travelling in space is a wonderful experience. I believe in one thing, "Nothing is impossible if you have a strong faith." Thank you, friends!</p>
+                    </div>
+                    
+                    <div class="character">
+                        <div class="character-name">Alekhya as Shakunthala Devi:</div>
+                        <p>Hello! This is Shakunthala Devi. I love mathematics. I play with numbers. My logical thinking, commitment titled me as the 'Human Computer'. So, my dear children! Put your efforts to be successful in your life. Wish you good luck!</p>
+                    </div>
+                    
+                    <div class="character">
+                        <div class="character-name">Swapna as M.S. Subbu Lakshmi:</div>
+                        <p>Music is a special gift. Music enthralls human beings as well as animals. I can say that music is magic. But one has to put in a lot of practice and effort. As you know, 'Practice makes a person perfect.' I am blessed to perform concerts around the world. So, children! Keep on practicing and one day you will become perfect. Bhaja Govindam!</p>
+                    </div>
+                    
+                    <div class="character">
+                        <div class="character-name">Kalyani as Yamini Krishna Murthy:</div>
+                        <p>Hello, dears! I am Yamini Krishna Murthy, an Indian classical dancer of Bharatanatyam and Kuchipudi. I have a great passion for dance. Continuous efforts and hard work lead to excellence. So, children! Enhance your passions. All the best!</p>
+                    </div>
+                    
+                    <div class="character">
+                        <div class="character-name">Sarala as Sarojini Naidu:</div>
+                        <p>Hello, friends! This is Sarojini Naidu. Writing poetry is my hobby. People call me, "The Nightingale of India." Since my fourteenth year, I have been writing poetry. I say that you can also become a poet, if you have an urge, vision and creativity. I wish you good luck in all your efforts.</p>
+                    </div>
+                    
+                    <div class="character">
+                        <div class="character-name">Latha as Jhansi Lakshmi Bai:</div>
+                        <p>Bharath Mathaki Jai! I was the queen of Jhansi. Being a lady, I exhibited my courage by fighting against the British in the 1857 revolt. My dear children, 'Be brave and stand for the nation'. Good luck!</p>
+                    </div>
+                    
+                    <div class="character">
+                        <div class="character-name">Mounika as Mary Kom:</div>
+                        <p>Hai, I'm Mary Kom. I'm an Indian boxer. People call me, 'Magnificent Mary.' I'm interested in martial arts too. My attitude is, 'Don't compromise, you can do it.' A Strong mind is the key to success. Children, try to fly the Indian flag high in the arena of sports and games.</p>
+                    </div>
+                    
+                    <p>After witnessing all the events, my parents realized that education is essential. With confidence and commitment in their voice, they said, "Go ahead, my dear and prove yourself." They assured me to send me to school every day.</p>
+                </div>
+            </section>
+            
+            <section class="vocabulary-section">
+                <h2>Vocabulary Learning</h2>
+                
+                <div class="controls">
+                    <button id="btn-three-letter">3-Letter Words</button>
+                    <button id="btn-four-letter">4-Letter Words</button>
+                    <button id="btn-five-letter">5-Letter Words</button>
+                    <button id="btn-verbs">Verbs</button>
+                    <button id="btn-opposites">Opposites</button>
+                </div>
+                
+                <div id="vocabulary-content">
+                    <!-- Content will be loaded here by JavaScript -->
+                    <div class="vocabulary-category">
+                        <h3>3-Letter Words & Meanings (Telugu)</h3>
+                        <ul class="vocab-list">
+                            <li>the <span class="telugu">(నిర్దిష్ట వస్తువు లేదా వ్యక్తిని సూచించే నిర్దిష్ట ఆర్టికల్)</span></li>
+                            <li>and <span class="telugu">(మరియు)</span></li>
+                            <li>was <span class="telugu">(ఉంది - భూతకాల రూపం)</span></li>
+                            <li>are <span class="telugu">(ఉన్నారు)</span></li>
+                            <li>all <span class="telugu">(అన్ని)</span></li>
+                            <li>but <span class="telugu">(కానీ)</span></li>
+                            <li>out <span class="telugu">(బయట)</span></li>
+                            <li>see <span class="telugu">(చూడండి)</span></li>
+                            <li>sat <span class="telugu">(కూర్చున్నాడు)</span></li>
+                            <li>row <span class="telugu">(అడ్డు వరుస)</span></li>
+                            <li>lap <span class="telugu">(మోకాలి పై భాగం)</span></li>
+                            <li>God <span class="telugu">(దేవుడు)</span></li>
+                            <li>for <span class="telugu">(కోసం)</span></li>
+                            <li>his <span class="telugu">(అతని)</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <footer>
+            <p>Designed for Class 5 Students | The Wondrous Women Lesson | Interactive Learning Page</p>
+        </footer>
+    </div>
+
+    <script>
+        // Vocabulary data
+        const vocabularyData = {
+            threeLetter: {
+                title: "3-Letter Words & Meanings (Telugu)",
+                items: [
+                    { word: "the", meaning: "(నిర్దిష్ట వస్తువు లేదా వ్యక్తిని సూచించే నిర్దిష్ట ఆర్టికల్)" },
+                    { word: "and", meaning: "(మరియు)" },
+                    { word: "was", meaning: "(ఉంది - భూతకాల రూపం)" },
+                    { word: "are", meaning: "(ఉన్నారు)" },
+                    { word: "all", meaning: "(అన్ని)" },
+                    { word: "but", meaning: "(కానీ)" },
+                    { word: "out", meaning: "(బయట)" },
+                    { word: "see", meaning: "(చూడండి)" },
+                    { word: "sat", meaning: "(కూర్చున్నాడు)" },
+                    { word: "row", meaning: "(అడ్డు వరుస)" },
+                    { word: "lap", meaning: "(మోకాలి పై భాగం)" },
+                    { word: "God", meaning: "(దేవుడు)" },
+                    { word: "for", meaning: "(కోసం)" },
+                    { word: "his", meaning: "(అతని)" },
+                    { word: "one", meaning: "(ఒకటి)" },
+                    { word: "you", meaning: "(మీరు)" },
+                    { word: "can", meaning: "(చేయగలరు)" }
+                ]
+            },
+            fourLetter: {
+                title: "4-Letter Words & Meanings (Telugu)",
+                items: [
+                    { word: "Hi!", meaning: "(నమస్కారం!)" },
+                    { word: "Today", meaning: "(ఈ రోజు)" },
+                    { word: "very", meaning: "(చాలా)" },
+                    { word: "excited", meaning: "(ఉత్సాహంగా)" },
+                    { word: "were", meaning: "(ఉండేవారు)" },
+                    { word: "long", meaning: "(పొడవైన)" },
+                    { word: "while", meaning: "(సమయంలో)" },
+                    { word: "with", meaning: "(తో)" },
+                    { word: "first", meaning: "(మొదటి)" },
+                    { word: "side", meaning: "(వైపు)" },
+                    { word: "play", meaning: "(నాటకం)" },
+                    { word: "heart", meaning: "(గుండె)" },
+                    { word: "like", meaning: "(ఇష్టం)" },
+                    { word: "share", meaning: "(పంచుకోండి)" },
+                    { word: "with", meaning: "(తో)" }
+                ]
+            },
+            fiveLetter: {
+                title: "5-Letter Words & Meanings (Telugu)",
+                items: [
+                    { word: "Ameena", meaning: "(అమీనా - ఒక పేరు)" },
+                    { word: "school", meaning: "(బడి)" },
+                    { word: "jubilant", meaning: "(ఆనందంతో కూడిన)" },
+                    { word: "atmosphere", meaning: "(వాతావరణం)" },
+                    { word: "rush", meaning: "(వేగంగా వెళ్ళు)" },
+                    { word: "parents", meaning: "(తల్లిదండ్రులు)" },
+                    { word: "invited", meaning: "(ఆహ్వానించారు)" },
+                    { word: "after", meaning: "(తర్వాత)" },
+                    { word: "going", meaning: "(వెళ్తున్నాను)" },
+                    { word: "friends", meaning: "(స్నేహితులు)" },
+                    { word: "brother", meaning: "(సోదరుడు)" },
+                    { word: "either", meaning: "(గాని)" },
+                    { word: "started", meaning: "(ప్రారంభమైంది)" },
+                    { word: "touched", meaning: "(తాకింది/మనసును కదిలించింది)" },
+                    { word: "human", meaning: "(మానవ)" }
+                ]
+            },
+            verbs: {
+                title: "Verbs from the Lesson",
+                items: [
+                    { word: "celebrating", meaning: "(పండుగ చేస్తున్నారు)" },
+                    { word: "made", meaning: "(చేసింది)" },
+                    { word: "rush", meaning: "(వేగంగా వెళ్ళు)" },
+                    { word: "invited", meaning: "(ఆహ్వానించారు)" },
+                    { word: "going", meaning: "(వెళ్తున్నాను)" },
+                    { word: "see", meaning: "(చూడండి)" },
+                    { word: "sat", meaning: "(కూర్చున్నాడు)" },
+                    { word: "started", meaning: "(ప్రారంభమైంది)" },
+                    { word: "performed", meaning: "(ప్రదర్శించారు)" },
+                    { word: "touched", meaning: "(తాకింది/మనసును కదిలించింది)" },
+                    { word: "share", meaning: "(పంచుకోండి)" },
+                    { word: "thankful", meaning: "(కృతజ్ఞతతో)" },
+                    { word: "see", meaning: "(చూడండి)" },
+                    { word: "serving", meaning: "(సేవ చేయడం)" },
+                    { word: "praying", meaning: "(ప్రార్థన చేయడం)" }
+                ]
+            },
+            opposites: {
+                title: "Opposite Words",
+                items: [
+                    { word: "jubilant", opposite: "sad (విచారంగా)" },
+                    { word: "excited", opposite: "calm (శాంతంగా)" },
+                    { word: "long", opposite: "short (చిన్న)" },
+                    { word: "first", opposite: "last (చివరి)" },
+                    { word: "started", opposite: "ended (ముగిసింది)" },
+                    { word: "different", opposite: "same (అదే)" },
+                    { word: "better", opposite: "worse (చెత్త)" },
+                    { word: "true", opposite: "false (తప్పు)" },
+                    { word: "happiness", opposite: "sadness (దుఃఖం)" },
+                    { word: "possible", opposite: "impossible (అసాధ్యం)" },
+                    { word: "strong", opposite: "weak (బలహీనమైన)" },
+                    { word: "successful", opposite: "unsuccessful (విఫలమైన)" },
+                    { word: "special", opposite: "ordinary (సాధారణ)" },
+                    { word: "perfect", opposite: "imperfect (అసంపూర్ణ)" },
+                    { word: "brave", opposite: "cowardly (పిరికి)" }
+                ]
+            }
+        };
+
+        // Get buttons and content area
+        const btnThreeLetter = document.getElementById('btn-three-letter');
+        const btnFourLetter = document.getElementById('btn-four-letter');
+        const btnFiveLetter = document.getElementById('btn-five-letter');
+        const btnVerbs = document.getElementById('btn-verbs');
+        const btnOpposites = document.getElementById('btn-opposites');
+        const vocabularyContent = document.getElementById('vocabulary-content');
+        const buttons = [btnThreeLetter, btnFourLetter, btnFiveLetter, btnVerbs, btnOpposites];
+
+        // Function to display vocabulary
+        function displayVocabulary(category) {
+            const data = vocabularyData[category];
+            
+            // Clear previous content
+            vocabularyContent.innerHTML = '';
+            
+            // Create category title
+            const title = document.createElement('h3');
+            title.textContent = data.title;
+            vocabularyContent.appendChild(title);
+            
+            // Create list
+            const list = document.createElement('ul');
+            list.className = 'vocab-list';
+            
+            // Add items to list
+            data.items.forEach(item => {
+                const listItem = document.createElement('li');
+                
+                if (category === 'opposites') {
+                    listItem.innerHTML = `<span>${item.word}</span> <span class="telugu">⇨ ${item.opposite}</span>`;
+                } else {
+                    listItem.innerHTML = `<span>${item.word}</span> <span class="telugu">${item.meaning}</span>`;
+                }
+                
+                list.appendChild(listItem);
+            });
+            
+            vocabularyContent.appendChild(list);
+            
+            // Update active button
+            buttons.forEach(btn => btn.classList.remove('active-category'));
+            
+            // Highlight the active button based on category
+            switch(category) {
+                case 'threeLetter':
+                    btnThreeLetter.classList.add('active-category');
+                    break;
+                case 'fourLetter':
+                    btnFourLetter.classList.add('active-category');
+                    break;
+                case 'fiveLetter':
+                    btnFiveLetter.classList.add('active-category');
+                    break;
+                case 'verbs':
+                    btnVerbs.classList.add('active-category');
+                    break;
+                case 'opposites':
+                    btnOpposites.classList.add('active-category');
+                    break;
+            }
+        }
+
+        // Add event listeners to buttons
+        btnThreeLetter.addEventListener('click', () => displayVocabulary('threeLetter'));
+        btnFourLetter.addEventListener('click', () => displayVocabulary('fourLetter'));
+        btnFiveLetter.addEventListener('click', () => displayVocabulary('fiveLetter'));
+        btnVerbs.addEventListener('click', () => displayVocabulary('verbs'));
+        btnOpposites.addEventListener('click', () => displayVocabulary('opposites'));
+
+        // Initialize with 3-letter words
+        displayVocabulary('threeLetter');
+
+        // Highlight difficult words in the lesson text
+        function highlightDifficultWords() {
+            const difficultWords = [
+                'jubilant', 'atmosphere', 'occasion', 'exhibited', 
+                'revolt', 'compromise', 'essential', 'confidence',
+                'commitment', 'assured', 'logical', 'enthalls',
+                'excellence', 'creativity', 'magnificent'
+            ];
+            
+            const lessonText = document.querySelector('.lesson-text');
+            let text = lessonText.innerHTML;
+            
+            difficultWords.forEach(word => {
+                const regex = new RegExp(`\\b${word}\\b`, 'gi');
+                text = text.replace(regex, `<span class="highlight">${word}</span>`);
+            });
+            
+            lessonText.innerHTML = text;
+        }
+
+        // Call the function when page loads
+        document.addEventListener('DOMContentLoaded', highlightDifficultWords);
+    </script>
+</body>
+</html>
