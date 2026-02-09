@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>కందులాపురం బడి – Sight Words</title>
+
+<!-- Anek Telugu Font -->
+<link href="https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  padding: 20px;
+  background: white;
+  color: #0b1a3a;
+  font-family: 'Anek Telugu', sans-serif;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.word-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.word-box {
+  border: 2px solid #0b1a3a;
+  padding: 30px 10px;
+  font-size: 32px;
+  cursor: pointer;
+  border-radius: 10px;
+  user-select: none;
+}
+
+.word-box:hover {
+  background: rgba(11, 26, 58, 0.08);
+}
+
+.controls {
+  margin-top: 30px;
+}
+
+button, input {
+  font-size: 16px;
+  padding: 8px 12px;
+  margin: 5px;
+}
+
+.page-info {
+  margin-top: 10px;
+  font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<h1>కందులాపురం బడి</h1>
+
+<div class="word-container" id="wordContainer"></div>
+
+<div class="controls">
+  <button onclick="prevPage()">⬅ Previous</button>
+  <button onclick="nextPage()">Next ➡</button><br>
+  <input type="number" id="pageInput" min="1" placeholder="Page No">
+  <button onclick="jumpToPage()">Go</button>
+  <div class="page-info" id="pageInfo"></div>
+</div>
+
+<script>
+/* ===== SIGHT WORDS (FROM YOUR IMAGES) ===== */
+const words = [
+"a","an","as","at","if","in","is","it","of","off","on","can","dad","had","back","and","get","big","him",
+"his","not","got","up","mum","but","put","the","two","I","no","go","into","will","that","this","then","them","with",
+"see","for","now","down","look","too","he","she","we","me","be","was","you","they","all","are","my","her",
+"went","it’s","from","children","just","help","said","have","like","so","do","some","come","were","there","little",
+"one","when","out","what","don’t","old","I’m","by","time","house","about","your","day","made","came","make","here",
+"saw","very","put","oh","their","people","Mr","Mrs","looked","called","asked","could",
+"across","after","again","air","along","am","animals","another","any","around","away","baby","bad","bear","because",
+"bed","been","before","began","best","better","birds","boat","book","box","boy","can’t","car","cat","clothes","cold",
+"coming","couldn’t","cried","dark","did","didn’t","different","dog","door","dragon","duck","each","eat","eggs","end",
+"even","ever","every","everyone","eyes","fast","feet","fell","find","first","fish","floppy","fly","food","found","fox",
+"friends","fun","garden","gave","giant","girl","going","gone","good","gran","grandad","great","green","grow","hard",
+"has","hat","he’s","head","home","horse","hot","how","I’ll","I’ve","inside","it’s","jumped","keep","key","king","know",
+"last","laughed",
+"let","let’s","liked","live","lived","long","looking","looks","lots","magic","man","many","may","miss","more","morning",
+"most","mother","mouse","much","must","narrator","need","never","new","next","night","one","only","or","other","our",
+"over","park","place","plants","play","please","pulled","queen","rabbit","ran","really","red","right","river","room",
+"round","run","sat","say","school","sea","shouted","sleep","small","snow","something","soon","still","stop","stopped",
+"suddenly","sun","take","tea","tell","than","that’s","there’s","these","thing","things","think","thought","three",
+"though","told","took","top","town","tree","trees","two","under","us","use","want","wanted","water","way","well",
+"we’re","where","which","white","who","why","wind","window","wish","work","would","yes"
+];
+
+const wordsPerPage = 4;
+let currentPage = 1;
+const totalPages = Math.ceil(words.length / wordsPerPage);
+
+function renderPage() {
+  const container = document.getElementById("wordContainer");
+  container.innerHTML = "";
+
+  const start = (currentPage - 1) * wordsPerPage;
+  const pageWords = words.slice(start, start + wordsPerPage);
+
+  pageWords.forEach(word => {
+    const div = document.createElement("div");
+    div.className = "word-box";
+    div.textContent = word;
+    div.onclick = () => speak(word);
+    container.appendChild(div);
+  });
+
+  document.getElementById("pageInfo").innerText =
+    `Page ${currentPage} of ${totalPages}`;
+}
+
+function speak(word) {
+  const u = new SpeechSynthesisUtterance(word);
+  u.lang = "en-IN";
+  u.rate = 0.8;
+  speechSynthesis.cancel();
+  speechSynthesis.speak(u);
+}
+
+function nextPage() {
+  if (currentPage < totalPages) {
+    currentPage++;
+    renderPage();
+  }
+}
+
+function prevPage() {
+  if (currentPage > 1) {
+    currentPage--;
+    renderPage();
+  }
+}
+
+function jumpToPage() {
+  const page = parseInt(document.getElementById("pageInput").value);
+  if (page >= 1 && page <= totalPages) {
+    currentPage = page;
+    renderPage();
+  }
+}
+
+renderPage();
+</script>
+
+</body>
+</html>

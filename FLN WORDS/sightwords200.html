@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="370pxx, initial-scale=1.0">
+    <title>Sight Words - కందులాపురం బడి-పదాలు నేర్చుకుందాం</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #005F6B; /* Peacock Blue */
+            color: white;
+            font-family: 'Anek Telugu', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        header {
+            position: absolute;
+            top: 20px;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .card {
+            padding: 40px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            width: 80%;
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .english-word {
+            font-size: 4.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .pronunciation {
+            font-size: 1.8rem;
+            color: #d1f7ff;
+            margin-bottom: 20px;
+        }
+
+        .telugu-meaning {
+            font-size: 3.5rem;
+            font-weight: 500;
+        }
+
+        .navigation {
+            margin-top: 30px;
+        }
+
+        button {
+            background: white;
+            color: #005F6B;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Anek Telugu', sans-serif;
+            margin: 0 10px;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: #d1f7ff;
+            transform: scale(1.05);
+        }
+
+        /* Jumping Search Styles */
+        .jump-container {
+            margin-top: 30px;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .jump-container input {
+            width: 80px;
+            padding: 10px;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            border: none;
+            text-align: center;
+            font-family: 'Anek Telugu', sans-serif;
+        }
+
+        .counter {
+            margin-top: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>కందులాపురం బడి</header>
+
+    <div class="card">
+        <div id="englishWord" class="english-word">...</div>
+        <div id="pronunciation" class="pronunciation"></div>
+        <div id="teluguMeaning" class="telugu-meaning"></div>
+    </div>
+
+    <div class="navigation">
+        <button onclick="prevWord()">వెనుకకు (Prev)</button>
+        <button onclick="nextWord()">ముందుకు (Next)</button>
+    </div>
+
+    <div class="jump-container">
+        <span>వెళ్ళు (Jump to): </span>
+        <input type="number" id="jumpInput" min="1" placeholder="1-200">
+        <button onclick="jumpToWord()">Go</button>
+    </div>
+
+    <div class="counter" id="counter">Word 1 of 200</div>
+
+    <script>
+        const sightWords = [
+            // 1-100
+            { en: "The", pr: "ద", te: "ఆ / ఒక" }, { en: "Of", pr: "అఫ్", te: "యొక్క" }, { en: "And", pr: "అండ్", te: "మరియు" }, { en: "A", pr: "ఏ", te: "ఒక" }, { en: "To", pr: "టూ", te: "కు / కి" }, { en: "In", pr: "ఇన్", te: "లో / లోపల" }, { en: "Is", pr: "ఈజ్", te: "అవును / ఉంది" }, { en: "You", pr: "యూ", te: "నీవు / మీరు" }, { en: "That", pr: "ద్యాట్", te: "అది" }, { en: "It", pr: "ఇట్", te: "ఇది" }, { en: "He", pr: "హీ", te: "అతడు" }, { en: "Was", pr: "వాజ్", te: "ఉండెను" }, { en: "For", pr: "ఫర్", te: "కొరకు" }, { en: "On", pr: "ఆన్", te: "పైన" }, { en: "Are", pr: "ఆర్", te: "ఉన్నారు" }, { en: "As", pr: "యాజ్", te: "వలే / లాగా" }, { en: "With", pr: "విత్", te: "తో" }, { en: "His", pr: "హిజ్", te: "అతని యొక్క" }, { en: "They", pr: "దే", te: "వారు" }, { en: "I", pr: "ఐ", te: "నేను" }, { en: "At", pr: "అట్", te: "వద్ద" }, { en: "Be", pr: "బీ", te: "ఉండుట" }, { en: "This", pr: "దిస్", te: "ఇది" }, { en: "Have", pr: "హ్యావ్", te: "కలిగి ఉండు" }, { en: "From", pr: "ఫ్రమ్", te: "నుండి" }, { en: "Or", pr: "ఆర్", te: "లేదా" }, { en: "One", pr: "వన్", te: "ఒకటి" }, { en: "Had", pr: "హ్యాడ్", te: "కలిగి ఉండెను" }, { en: "By", pr: "బై", te: "ద్వారా" }, { en: "Word", pr: "వర్డ్", te: "పదం" }, { en: "But", pr: "బట్", te: "కానీ" }, { en: "Not", pr: "నాట్", te: "కాదు" }, { en: "What", pr: "వాట్", te: "ఏమిటి" }, { en: "All", pr: "ఆల్", te: "అన్నీ" }, { en: "Were", pr: "వర్", te: "ఉండిరి" }, { en: "We", pr: "వీ", te: "మేము / మనము" }, { en: "When", pr: "వెన్", te: "ఎప్పుడు" }, { en: "Your", pr: "యువర్", te: "నీ యొక్క" }, { en: "Can", pr: "క్యాన్", te: "చేయగలరు" }, { en: "Said", pr: "సెడ్", te: "చెప్పెను" }, { en: "There", pr: "దేర్", te: "అక్కడ" }, { en: "Use", pr: "యూజ్", te: "ఉపయోగించు" }, { en: "An", pr: "ఆన్", te: "ఒక" }, { en: "Each", pr: "ఈచ్", te: "ప్రతి" }, { en: "Which", pr: "విచ్", te: "ఏది" }, { en: "She", pr: "షీ", te: "ఆమె" }, { en: "Do", pr: "డూ", te: "చేయు" }, { en: "How", pr: "హౌ", te: "ఎలా" }, { en: "Their", pr: "దేర్", te: "వారి యొక్క" }, { en: "If", pr: "ఇఫ్", te: "అయితే" }, { en: "Will", pr: "విల్", te: "జరుగుతుంది" }, { en: "Up", pr: "అప్", te: "పైన" }, { en: "Other", pr: "అదర్", te: "ఇతర" }, { en: "About", pr: "అబౌట్", te: "గురించి" }, { en: "Out", pr: "అవుట్", te: "బయట" }, { en: "Many", pr: "మెనీ", te: "చాలా" }, { en: "Then", pr: "దెన్", te: "అప్పుడు" }, { en: "Them", pr: "దెమ్", te: "వారిని" }, { en: "These", pr: "దీజ్", te: "ఇవి" }, { en: "So", pr: "సో", te: "కాబట్టి" }, { en: "Some", pr: "సమ్", te: "కొన్ని" }, { en: "Her", pr: "హెర్", te: "ఆమె / ఆమె యొక్క" }, { en: "Would", pr: "వుడ్", te: "చేసెడివాడు" }, { en: "Make", pr: "మేక్", te: "తయారు చేయు" }, { en: "Like", pr: "లైక్", te: "ఇష్టం / వలె" }, { en: "Him", pr: "హిమ్", te: "అతనిని" }, { en: "Into", pr: "ఇంటూ", te: "లోపలికి" }, { en: "Time", pr: "టైమ్", te: "సమయం" }, { en: "Has", pr: "హ్యాస్", te: "కలిగి ఉంది" }, { en: "Look", pr: "లుక్", te: "చూడండి" }, { en: "Two", pr: "టూ", te: "రెండు" }, { en: "More", pr: "మోర్", te: "మరింత" }, { en: "Write", pr: "రైట్", te: "రాయు" }, { en: "Go", pr: "గో", te: "వెళ్లు" }, { en: "See", pr: "సీ", te: "చూడండి" }, { en: "Number", pr: "నంబర్", te: "సంఖ్య" }, { en: "No", pr: "నో", te: "కాదు / లేదు" }, { en: "Way", pr: "వే", te: "మార్గం" }, { en: "Could", pr: "కుడ్", te: "చేయగలిగెను" }, { en: "People", pr: "పీపుల్", te: "ప్రజలు" }, { en: "My", pr: "మై", te: "నా యొక్క" }, { en: "Than", pr: "ద్యాన్", te: "కంటే" }, { en: "First", pr: "ఫస్ట్", te: "మొదటి" }, { en: "Water", pr: "వాటర్", te: "నీరు" }, { en: "Been", pr: "బీన్", te: "ఉండెను" }, { en: "Call", pr: "కాల్", te: "పిలుచు" }, { en: "Who", pr: "హూ", te: "ఎవరు" }, { en: "Oil", pr: "ఆయిల్", te: "నూనె" }, { en: "Its", pr: "ఇట్స్", te: "దీని యొక్క" }, { en: "Now", pr: "నౌ", te: "ఇప్పుడు" }, { en: "Find", pr: "ఫైండ్", te: "కనుగొను" }, { en: "Long", pr: "లాంగ్", te: "పొడవు" }, { en: "Down", pr: "డౌన్", te: "క్రింద" }, { en: "Day", pr: "డే", te: "రోజు" }, { en: "Did", pr: "డిడ్", te: "చేసెను" }, { en: "Get", pr: "గెట్", te: "పొందు" }, { en: "Come", pr: "కమ్", te: "రండి" }, { en: "Made", pr: "మేడ్", te: "తయారుచేసెను" }, { en: "May", pr: "మే", te: "బహుశా" }, { en: "Part", pr: "పార్ట్", te: "భాగం" },
+            // 101-200
+            { en: "Over", pr: "ఓవర్", te: "పైన / దాటి" }, { en: "New", pr: "న్యూ", te: "కొత్త" }, { en: "Sound", pr: "సౌండ్", te: "శబ్దం" }, { en: "Take", pr: "టేక్", te: "తీసుకొను" }, { en: "Only", pr: "ఓన్లీ", te: "మాత్రమే" }, { en: "Little", pr: "లిటిల్", te: "చిన్న / కొద్దిగా" }, { en: "Work", pr: "వర్క్", te: "పని" }, { en: "Know", pr: "నో", te: "తెలుసు" }, { en: "Place", pr: "ప్లేస్", te: "స్థలం" }, { en: "Year", pr: "ఇయర్", te: "సంవత్సరం" }, { en: "Live", pr: "లివ్", te: "నివసించు" }, { en: "Me", pr: "మీ", te: "నన్ను / నాకు" }, { en: "Back", pr: "బ్యాక్", te: "వెనుక" }, { en: "Give", pr: "గివ్", te: "ఇచ్చుట" }, { en: "Most", pr: "మోస్ట్", te: "చాలా / ఎక్కువ" }, { en: "Very", pr: "వెరీ", te: "చాలా" }, { en: "After", pr: "ఆఫ్టర్", te: "తరువాత" }, { en: "Thing", pr: "థింగ్", te: "వస్తువు" }, { en: "Our", pr: "అవర్", te: "మన / మా యొక్క" }, { en: "Just", pr: "జస్ట్", te: "కేవలం / ఇప్పుడే" }, { en: "Name", pr: "నేమ్", te: "పేరు" }, { en: "Good", pr: "గుడ్", te: "మంచి" }, { en: "Sentence", pr: "సెంటెన్స్", te: "వాక్యం" }, { en: "Man", pr: "మ్యాన్", te: "మనిషి / పురుషుడు" }, { en: "Think", pr: "థింక్", te: "ఆలోచించు" }, { en: "Say", pr: "సే", te: "చెప్పు" }, { en: "Great", pr: "గ్రేట్", te: "గొప్ప" }, { en: "Where", pr: "వేర్", te: "ఎక్కడ" }, { en: "Help", pr: "హెల్ప్", te: "సహాయం" }, { en: "Through", pr: "త్రూ", te: "ద్వారా" }, { en: "Much", pr: "మచ్", te: "ఎక్కువ" }, { en: "Before", pr: "బిఫోర్", te: "ముందు" }, { en: "Line", pr: "లైన్", te: "గీత / వరుస" }, { en: "Right", pr: "రైట్", te: "సరియైన / కుడి" }, { en: "Too", pr: "టూ", te: "కూడా" }, { en: "Means", pr: "మీన్స్", te: "అర్థం" }, { en: "Old", pr: "ఓల్డ్", te: "పాత / వయసు" }, { en: "Any", pr: "ఎనీ", te: "ఏదైనా" }, { en: "Same", pr: "సేమ్", te: "అదే / సమానమైన" }, { en: "Tell", pr: "టెల్", te: "చెప్పు" }, { en: "Boy", pr: "బాయ్", te: "బాలుడు" }, { en: "Follow", pr: "ఫాలో", te: "అనుసరించు" }, { en: "Came", pr: "కేమ్", te: "వచ్చెను" }, { en: "Want", pr: "వాంట్", te: "కావాలి" }, { en: "Show", pr: "షో", te: "చూపించు" }, { en: "Also", pr: "ఆల్సో", te: "కూడా" }, { en: "Around", pr: "అరౌండ్", te: "చుట్టూ" }, { en: "Farm", pr: "ファーム", te: "పొలం" }, { en: "Three", pr: "త్రీ", te: "మూడు" }, { en: "Small", pr: "స్మాల్", te: "చిన్న" }, { en: "Set", pr: "సెట్", te: "అమర్చు / సమితి" }, { en: "Put", pr: "పుట్", te: "పెట్టు" }, { en: "End", pr: "ఎండ్", te: "ముగింపు" }, { en: "Does", pr: "డజ్", te: "చేయును" }, { en: "Another", pr: "అనదర్", te: "మరొక" }, { en: "Well", pr: "వెల్", te: "బాగా / బావి" }, { en: "Large", pr: "లార్జ్", te: "పెద్ద" }, { en: "Must", pr: "మస్ట్", te: "తప్పనిసరి" }, { en: "Big", pr: "బిగ్", te: "పెద్దది" }, { en: "Even", pr: "ఈవెన్", te: "కూడా / సరి సంఖ్య" }, { en: "Such", pr: "సచ్", te: "అటువంటి" }, { en: "Because", pr: "బికాజ్", te: "ఎందుకంటే" }, { en: "Turn", pr: "టర్న్", te: "మలుపు / తిరుగు" }, { en: "Here", pr: "హియర్", te: "ఇక్కడ" }, { en: "Why", pr: "వై", te: "ఎందుకు" }, { en: "Ask", pr: "ఆస్క్", te: "అడుగు" }, { en: "Went", pr: "వెంట్", te: "వెళ్ళెను" }, { en: "Men", pr: "మెన్", te: "పురుషులు" }, { en: "Read", pr: "రీడ్", te: "చదువు" }, { en: "Need", pr: "నీడ్", te: "అవసరం" }, { en: "Land", pr: "ల్యాండ్", te: "భూమి" }, { en: "Different", pr: "డిఫరెంట్", te: "విభిన్నమైన" }, { en: "Home", pr: "హోమ్", te: "ఇల్లు" }, { en: "Us", pr: "అస్", te: "మనల్ని / మాకు" }, { en: "Move", pr: "మూవ్", te: "కదులు" }, { en: "Try", pr: "ట్రై", te: "ప్రయత్నించు" }, { en: "Kind", pr: "కైండ్", te: "రకము / దయగల" }, { en: "Hand", pr: "హ్యాండ్", te: "చెయ్యి" }, { en: "Picture", pr: "పిక్చర్", te: "చిత్రం" }, { en: "Again", pr: "అగైన్", te: "మళ్ళీ" }, { en: "Change", pr: "ఛేంజ్", te: "మార్పు" }, { en: "Off", pr: "ఆఫ్", te: "ఆపివేయు / నుండి" }, { en: "Play", pr: "ప్లే", te: "ఆడుకొను" }, { en: "Spell", pr: "స్పెల్", te: "అక్షరక్రమం" }, { en: "Air", pr: "ఎయిర్", te: "గాలి" }, { en: "Away", pr: "అవే", te: "దూరంగా" }, { en: "Animal", pr: "ానిమల్", te: "జంతువు" }, { en: "House", pr: "హౌస్", te: "ఇల్లు" }, { en: "Point", pr: "పాయింట్", te: "బిందువు / సూచించు" }, { en: "Page", pr: "పేజ్", te: "పేజీ" }, { en: "Letter", pr: "లెటర్", te: "ఉత్తరం / అక్షరం" }, { en: "Mother", pr: "మదర్", te: "తల్లి" }, { en: "Answer", pr: "ఆన్సర్", te: "జవాబు" }, { en: "Found", pr: "ఫౌండ్", te: "కనుగొనెను" }, { en: "Study", pr: "స్టడీ", te: "చదువు / అభ్యాసం" }, { en: "Still", pr: "స్టిల్", te: "ఇంకా" }, { en: "Learn", pr: "లెర్న్", te: "నేర్చుకొను" }, { en: "Should", pr: "షుడ్", te: "చేయాలి" }, { en: "America", pr: "అమెరికా", te: "అమెరికా దేశం" }, { en: "World", pr: "వరల్డ్", te: "ప్రపంచం" }
+        ];
+
+        let currentIndex = 0;
+
+        function updateCard() {
+            const word = sightWords[currentIndex];
+            document.getElementById('englishWord').innerText = word.en;
+            document.getElementById('pronunciation').innerText = `ఉచ్చారణ: ${word.pr}`;
+            document.getElementById('teluguMeaning').innerText = word.te;
+            document.getElementById('counter').innerText = `Word ${currentIndex + 1} of ${sightWords.length}`;
+            document.getElementById('jumpInput').placeholder = `1-${sightWords.length}`;
+        }
+
+        function nextWord() {
+            if (currentIndex < sightWords.length - 1) {
+                currentIndex++;
+                updateCard();
+            }
+        }
+
+        function prevWord() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCard();
+            }
+        }
+
+        function jumpToWord() {
+            const val = parseInt(document.getElementById('jumpInput').value);
+            if (val >= 1 && val <= sightWords.length) {
+                currentIndex = val - 1;
+                updateCard();
+            } else {
+                alert(`దయచేసి 1 మరియు ${sightWords.length} మధ్య సంఖ్యను నమోదు చేయండి.`);
+            }
+        }
+
+        updateCard();
+    </script>
+</body>
+</html>

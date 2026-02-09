@@ -1,0 +1,1681 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>తెలుగు పదాలు - సులువైన పదాలు (పేజీలు 1-4)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Anek Telugu', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #008080, #004d4d);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .stats {
+            background-color: #e6f2f2;
+            padding: 15px;
+            text-align: center;
+            border-bottom: 2px solid #008080;
+            font-size: 1.1rem;
+            color: #004d4d;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .page {
+            background-color: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            page-break-after: always;
+        }
+        
+        .page-header {
+            border-bottom: 3px solid #008080;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .page-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #004d4d;
+        }
+        
+        .page-number {
+            font-size: 1.2rem;
+            color: #008080;
+            font-weight: 500;
+            background-color: #e6f2f2;
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+        
+        .words-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .word-card {
+            background-color: #f9f9f9;
+            border-left: 4px solid #008080;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .word-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0, 128, 128, 0.15);
+        }
+        
+        .word {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #004d4d;
+            margin-bottom: 8px;
+        }
+        
+        .word-number {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .alphabet-section {
+            margin-bottom: 30px;
+        }
+        
+        .alphabet-header {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #008080;
+            padding: 10px 0;
+            border-bottom: 2px solid #e0e0e0;
+            margin-bottom: 15px;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f0f0f0;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid #ddd;
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-button {
+            background-color: #008080;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Anek Telugu', sans-serif;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-button:hover {
+            background-color: #004d4d;
+        }
+        
+        .nav-button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        
+        .page-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .page-select {
+            padding: 8px 15px;
+            border-radius: 5px;
+            border: 1px solid #008080;
+            font-family: 'Anek Telugu', sans-serif;
+            font-size: 1rem;
+        }
+        
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+            }
+            
+            .page {
+                box-shadow: none;
+                margin-bottom: 0;
+                border: 1px solid #ddd;
+            }
+            
+            .navigation, .footer {
+                display: none;
+            }
+            
+            .words-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 1024px) {
+            .words-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .words-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .word {
+                font-size: 1.6rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .words-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>సులువైన తెలుగు పదాలు</h1>
+            <p>పేజీలు 1 నుండి 4 వరకు - అనేక్ తెలుగు ఫాంట్‌లో</p>
+        </div>
+        
+        <div class="stats">
+            <p>మొత్తం పదాలు: 470+ | పేజీలు: 12 | అక్షరం వారీగా వర్గీకరించబడ్డాయి</p>
+        </div>
+        
+        <div class="content">
+            <!-- Page 1 -->
+            <div class="page" id="page1">
+                <div class="page-header">
+                    <div class="page-title">అ అక్షరం పదాలు</div>
+                    <div class="page-number">పేజీ 1</div>
+                </div>
+                
+                <div class="alphabet-section">
+                    <div class="alphabet-header">అ ఆది అక్షరంతో మొదలయ్యే పదాలు</div>
+                    <div class="words-container">
+                        <div class="word-card">
+                            <div class="word-number">1</div>
+                            <div class="word">అంగజ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">2</div>
+                            <div class="word">అంగన</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">3</div>
+                            <div class="word">అండదండ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">4</div>
+                            <div class="word">అంతంత</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">5</div>
+                            <div class="word">అంతట</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">6</div>
+                            <div class="word">అంతరం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">7</div>
+                            <div class="word">అందక</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">8</div>
+                            <div class="word">అందడం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">9</div>
+                            <div class="word">అందలం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">10</div>
+                            <div class="word">అంబరం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">11</div>
+                            <div class="word">అఖండం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">12</div>
+                            <div class="word">అగండం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">13</div>
+                            <div class="word">ఆజక</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">14</div>
+                            <div class="word">అటక</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">15</div>
+                            <div class="word">అదనం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">16</div>
+                            <div class="word">అదరక</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">17</div>
+                            <div class="word">అనంతం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">18</div>
+                            <div class="word">అనంతరం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">19</div>
+                            <div class="word">అనటం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">20</div>
+                            <div class="word">అభయం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">21</div>
+                            <div class="word">అమర</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">22</div>
+                            <div class="word">అమల</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">23</div>
+                            <div class="word">అర</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">24</div>
+                            <div class="word">అరక</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">25</div>
+                            <div class="word">అరగంట</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">26</div>
+                            <div class="word">అరగక</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">27</div>
+                            <div class="word">అరవడం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">28</div>
+                            <div class="word">అల</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">29</div>
+                            <div class="word">అలక</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">30</div>
+                            <div class="word">అలమర</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">31</div>
+                            <div class="word">అలసట</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">32</div>
+                            <div class="word">అవసరం</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Page 2 -->
+            <div class="page" id="page2">
+                <div class="page-header">
+                    <div class="page-title">అ అక్షరం పదాలు (కొనసాగు)</div>
+                    <div class="page-number">పేజీ 2</div>
+                </div>
+                
+                <div class="alphabet-section">
+                    <div class="alphabet-header">అ ఆది అక్షరంతో మొదలయ్యే పదాలు (కొనసాగు)</div>
+                    <div class="words-container">
+                        <div class="word-card">
+                            <div class="word-number">33</div>
+                            <div class="word">అనమయం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">34</div>
+                            <div class="word">అనహజం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">35</div>
+                            <div class="word">ఆచంట</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">36</div>
+                            <div class="word">ఆట</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">37</div>
+                            <div class="word">ఆడ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">38</div>
+                            <div class="word">ఆడటం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">39</div>
+                            <div class="word">ఆదరణ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">40</div>
+                            <div class="word">ఆనంద</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">41</div>
+                            <div class="word">ఆపద</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">42</div>
+                            <div class="word">ఆమడ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">43</div>
+                            <div class="word">ఆయన</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">44</div>
+                            <div class="word">ఆలంబన</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">45</div>
+                            <div class="word">ఆలయం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">46</div>
+                            <div class="word">ఆవ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">47</div>
+                            <div class="word">ఆవడ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">48</div>
+                            <div class="word">ఆవల</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">49</div>
+                            <div class="word">ఆసనం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">50</div>
+                            <div class="word">ఇక</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">51</div>
+                            <div class="word">ఇచట</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">52</div>
+                            <div class="word">ఇనప</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">53</div>
+                            <div class="word">ఇల</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">54</div>
+                            <div class="word">ఈక</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">55</div>
+                            <div class="word">ఈగ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">56</div>
+                            <div class="word">ఈగతల</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">57</div>
+                            <div class="word">ఈత</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">58</div>
+                            <div class="word">ఈదటం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">59</div>
+                            <div class="word">ఈయన</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">60</div>
+                            <div class="word">ఈల</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">61</div>
+                            <div class="word">ఈవల</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">62</div>
+                            <div class="word">ఉంగరం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">63</div>
+                            <div class="word">ఉండటం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">64</div>
+                            <div class="word">ఉడకటం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">65</div>
+                            <div class="word">ఉడత</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Page 3 -->
+            <div class="page" id="page3">
+                <div class="page-header">
+                    <div class="page-title">ఉ, ఎ, ఏ, ఐ, ఒ, ఓ, ఔ అక్షరాల పదాలు</div>
+                    <div class="page-number">పేజీ 3</div>
+                </div>
+                
+                <div class="alphabet-section">
+                    <div class="alphabet-header">ఉ ఆది అక్షరంతో మొదలయ్యే పదాలు</div>
+                    <div class="words-container">
+                        <div class="word-card">
+                            <div class="word-number">66</div>
+                            <div class="word">ఉభయ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">67</div>
+                            <div class="word">ఉమ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">68</div>
+                            <div class="word">ఉలకక</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">69</div>
+                            <div class="word">ఉలవ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">70</div>
+                            <div class="word">ఉప</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">71</div>
+                            <div class="word">ఉపజడ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">72</div>
+                            <div class="word">ఉకక</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">73</div>
+                            <div class="word">ఉగడం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">74</div>
+                            <div class="word">ఉట</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">75</div>
+                            <div class="word">ఉడ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">76</div>
+                            <div class="word">ఉత</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">77</div>
+                            <div class="word">ఉతపదం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">78</div>
+                            <div class="word">ఉపడం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">79</div>
+                            <div class="word">ఉయల</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">80</div>
+                            <div class="word">ఉర</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">81</div>
+                            <div class="word">ఉరట</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">82</div>
+                            <div class="word">ఉళ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">83</div>
+                            <div class="word">ఉపా</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">84</div>
+                            <div class="word">ఎండటం</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="alphabet-section">
+                    <div class="alphabet-header">ఎ ఆది అక్షరంతో మొదలయ్యే పదాలు</div>
+                    <div class="words-container">
+                        <div class="word-card">
+                            <div class="word-number">85</div>
+                            <div class="word">ఎకరం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">86</div>
+                            <div class="word">ఎగరటం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">87</div>
+                            <div class="word">ఎడద</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">88</div>
+                            <div class="word">ఎడమ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">89</div>
+                            <div class="word">ఎద</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">90</div>
+                            <div class="word">ఎర</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">91</div>
+                            <div class="word">ఏడవ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">92</div>
+                            <div class="word">ఏల</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">93</div>
+                            <div class="word">ఐదవ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">94</div>
+                            <div class="word">ఒక</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">95</div>
+                            <div class="word">ఒకటవ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">96</div>
+                            <div class="word">ఒర</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">97</div>
+                            <div class="word">ఓడ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">98</div>
+                            <div class="word">ఔనట</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">99</div>
+                            <div class="word">ఔననగ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">100</div>
+                            <div class="word">ఔర</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">101</div>
+                            <div class="word">ఔషధం</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Page 4 -->
+            <div class="page" id="page4">
+                <div class="page-header">
+                    <div class="page-title">క అక్షరం పదాలు</div>
+                    <div class="page-number">పేజీ 4</div>
+                </div>
+                
+                <div class="alphabet-section">
+                    <div class="alphabet-header">క ఆది అక్షరంతో మొదలయ్యే పదాలు</div>
+                    <div class="words-container">
+                        <div class="word-card">
+                            <div class="word-number">102</div>
+                            <div class="word">కందలం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">103</div>
+                            <div class="word">కటక</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">104</div>
+                            <div class="word">కటకడ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">105</div>
+                            <div class="word">గటం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">106</div>
+                            <div class="word">కడప</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">107</div>
+                            <div class="word">కడవ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">108</div>
+                            <div class="word">కథనం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">109</div>
+                            <div class="word">కదంబం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">110</div>
+                            <div class="word">కదలక</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">111</div>
+                            <div class="word">కనక</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">112</div>
+                            <div class="word">కనకం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">113</div>
+                            <div class="word">కపటం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">114</div>
+                            <div class="word">కమలం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">115</div>
+                            <div class="word">కర</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">116</div>
+                            <div class="word">కరణం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">117</div>
+                            <div class="word">కలకల</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">118</div>
+                            <div class="word">కండ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">119</div>
+                            <div class="word">కలకలం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">120</div>
+                            <div class="word">కలగడం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">121</div>
+                            <div class="word">కలత</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">122</div>
+                            <div class="word">కలపటం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">123</div>
+                            <div class="word">కలవరం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">124</div>
+                            <div class="word">కలశం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">125</div>
+                            <div class="word">కలహం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">126</div>
+                            <div class="word">కళ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">127</div>
+                            <div class="word">కళక</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">128</div>
+                            <div class="word">కళకవచం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">129</div>
+                            <div class="word">గగనం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">130</div>
+                            <div class="word">గడవడం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">131</div>
+                            <div class="word">గణ</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Page 5 -->
+            <div class="page" id="page5">
+                <div class="page-header">
+                    <div class="page-title">గ, ఘ, చ, జ అక్షరాల పదాలు</div>
+                    <div class="page-number">పేజీ 5</div>
+                </div>
+                
+                <div class="alphabet-section">
+                    <div class="alphabet-header">గ ఆది అక్షరంతో మొదలయ్యే పదాలు</div>
+                    <div class="words-container">
+                        <div class="word-card">
+                            <div class="word-number">132</div>
+                            <div class="word">గణగణ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">133</div>
+                            <div class="word">గత</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">134</div>
+                            <div class="word">గద</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">135</div>
+                            <div class="word">గమనం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">136</div>
+                            <div class="word">గయ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">137</div>
+                            <div class="word">గరళం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">138</div>
+                            <div class="word">ఘటన</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">139</div>
+                            <div class="word">ఘన</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">140</div>
+                            <div class="word">ఘనత</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">141</div>
+                            <div class="word">చందన</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">142</div>
+                            <div class="word">చంపడం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">143</div>
+                            <div class="word">చదరం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">144</div>
+                            <div class="word">చదవటం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">145</div>
+                            <div class="word">చపల</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">146</div>
+                            <div class="word">చరణ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">147</div>
+                            <div class="word">చలనం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">148</div>
+                            <div class="word">జగడం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">149</div>
+                            <div class="word">జగదంబ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">150</div>
+                            <div class="word">జడ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">151</div>
+                            <div class="word">జత</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">152</div>
+                            <div class="word">జనగణ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">153</div>
+                            <div class="word">జననం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">154</div>
+                            <div class="word">జమ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">155</div>
+                            <div class="word">జయ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">156</div>
+                            <div class="word">జరగటం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">157</div>
+                            <div class="word">జలగ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">158</div>
+                            <div class="word">జలచరం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">159</div>
+                            <div class="word">జలజ</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Page 6 -->
+            <div class="page" id="page6">
+                <div class="page-header">
+                    <div class="page-title">ట, త, ద, ధ, న అక్షరాల పదాలు</div>
+                    <div class="page-number">పేజీ 6</div>
+                </div>
+                
+                <div class="alphabet-section">
+                    <div class="alphabet-header">ట, త ఆది అక్షరాల పదాలు</div>
+                    <div class="words-container">
+                        <div class="word-card">
+                            <div class="word-number">160</div>
+                            <div class="word">తగరం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">161</div>
+                            <div class="word">తడ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">162</div>
+                            <div class="word">తడక</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">163</div>
+                            <div class="word">తతంగం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">164</div>
+                            <div class="word">తపన</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">165</div>
+                            <div class="word">తరగడం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">166</div>
+                            <div class="word">తల</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">167</div>
+                            <div class="word">తలగడ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">168</div>
+                            <div class="word">దండన</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">169</div>
+                            <div class="word">దడ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">170</div>
+                            <div class="word">దయ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">171</div>
+                            <div class="word">దవడ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">172</div>
+                            <div class="word">దవన</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">173</div>
+                            <div class="word">దశ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">174</div>
+                            <div class="word">దహనం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">175</div>
+                            <div class="word">ధర</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">176</div>
+                            <div class="word">నందన</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">177</div>
+                            <div class="word">నందనం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">178</div>
+                            <div class="word">నకరం</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Page 7 -->
+            <div class="page" id="page7">
+                <div class="page-header">
+                    <div class="page-title">న అక్షరం పదాలు</div>
+                    <div class="page-number">పేజీ 7</div>
+                </div>
+                
+                <div class="alphabet-section">
+                    <div class="alphabet-header">న ఆది అక్షరంతో మొదలయ్యే పదాలు</div>
+                    <div class="words-container">
+                        <div class="word-card">
+                            <div class="word-number">179</div>
+                            <div class="word">నగ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">180</div>
+                            <div class="word">నగధర</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">181</div>
+                            <div class="word">నగరం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">182</div>
+                            <div class="word">నటన</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">183</div>
+                            <div class="word">నడవ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">184</div>
+                            <div class="word">నమలటం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">185</div>
+                            <div class="word">నయనం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">186</div>
+                            <div class="word">నర</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">187</div>
+                            <div class="word">నరకం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">188</div>
+                            <div class="word">నలక</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">189</div>
+                            <div class="word">నలత</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">190</div>
+                            <div class="word">నలపడం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">191</div>
+                            <div class="word">నవత</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">192</div>
+                            <div class="word">నస</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">193</div>
+                            <div class="word">పంకజం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">194</div>
+                            <div class="word">పంచటం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">195</div>
+                            <div class="word">పండగ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">196</div>
+                            <div class="word">పంతం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">197</div>
+                            <div class="word">పంపకం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">198</div>
+                            <div class="word">పగ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">199</div>
+                            <div class="word">పగడం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">200</div>
+                            <div class="word">పఠనం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">201</div>
+                            <div class="word">పడటం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">202</div>
+                            <div class="word">పడడం</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Page 8 -->
+            <div class="page" id="page8">
+                <div class="page-header">
+                    <div class="page-title">ప, ఫ, బ, భ, మ అక్షరాల పదాలు</div>
+                    <div class="page-number">పేజీ 8</div>
+                </div>
+                
+                <div class="alphabet-section">
+                    <div class="alphabet-header">ప ఆది అక్షరంతో మొదలయ్యే పదాలు</div>
+                    <div class="words-container">
+                        <div class="word-card">
+                            <div class="word-number">203</div>
+                            <div class="word">పడమట</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">204</div>
+                            <div class="word">పడమర</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">205</div>
+                            <div class="word">పడవ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">206</div>
+                            <div class="word">పతకం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">207</div>
+                            <div class="word">పతనం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">208</div>
+                            <div class="word">పథకం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">209</div>
+                            <div class="word">పనన</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">210</div>
+                            <div class="word">పయనం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">211</div>
+                            <div class="word">పరం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">212</div>
+                            <div class="word">పరపలక</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">213</div>
+                            <div class="word">పలకక</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">214</div>
+                            <div class="word">పలచన</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">215</div>
+                            <div class="word">పవన</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">216</div>
+                            <div class="word">ఫలకం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">217</div>
+                            <div class="word">బయట</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">218</div>
+                            <div class="word">బర</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">219</div>
+                            <div class="word">బరబర</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">220</div>
+                            <div class="word">బలపం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">221</div>
+                            <div class="word">జసభ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">222</div>
+                            <div class="word">జన</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">223</div>
+                            <div class="word">భజనం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">224</div>
+                            <div class="word">భయంకరం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">225</div>
+                            <div class="word">భరణం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">226</div>
+                            <div class="word">భరత</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Page 9 -->
+            <div class="page" id="page9">
+                <div class="page-header">
+                    <div class="page-title">మ, ర, ల, వ, శ, స అక్షరాల పదాలు</div>
+                    <div class="page-number">పేజీ 9</div>
+                </div>
+                
+                <div class="alphabet-section">
+                    <div class="alphabet-header">మ, ర ఆది అక్షరాల పదాలు</div>
+                    <div class="words-container">
+                        <div class="word-card">
+                            <div class="word-number">227</div>
+                            <div class="word">భవనం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">228</div>
+                            <div class="word">మంగళ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">229</div>
+                            <div class="word">మండపం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">230</div>
+                            <div class="word">మందర</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">231</div>
+                            <div class="word">మకరం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">232</div>
+                            <div class="word">మడత</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">233</div>
+                            <div class="word">మడమ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">234</div>
+                            <div class="word">మధనం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">235</div>
+                            <div class="word">మనమ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">236</div>
+                            <div class="word">మత</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">237</div>
+                            <div class="word">మయసభ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">238</div>
+                            <div class="word">మర</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">239</div>
+                            <div class="word">మరక</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">240</div>
+                            <div class="word">మరణం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">241</div>
+                            <div class="word">మసకయ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">242</div>
+                            <div class="word">మరంజకం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">243</div>
+                            <div class="word">రంపం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">244</div>
+                            <div class="word">రగడ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">245</div>
+                            <div class="word">రచన</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">246</div>
+                            <div class="word">రభస</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">247</div>
+                            <div class="word">రమ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">248</div>
+                            <div class="word">రమణలం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">249</div>
+                            <div class="word">ఖణం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">250</div>
+                            <div class="word">లంచం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">251</div>
+                            <div class="word">లత</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">252</div>
+                            <div class="word">లయ</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Page 10 -->
+            <div class="page" id="page10">
+                <div class="page-header">
+                    <div class="page-title">ల, వ, శ, స అక్షరాల పదాలు</div>
+                    <div class="page-number">పేజీ 10</div>
+                </div>
+                
+                <div class="alphabet-section">
+                    <div class="alphabet-header">ల, వ ఆది అక్షరాల పదాలు</div>
+                    <div class="words-container">
+                        <div class="word-card">
+                            <div class="word-number">253</div>
+                            <div class="word">లలన</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">254</div>
+                            <div class="word">లవంగం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">255</div>
+                            <div class="word">లవణం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">256</div>
+                            <div class="word">వంకర</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">257</div>
+                            <div class="word">వంచటం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">258</div>
+                            <div class="word">వంచన</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">259</div>
+                            <div class="word">వందనం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">260</div>
+                            <div class="word">వచనం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">261</div>
+                            <div class="word">వడవణకడం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">262</div>
+                            <div class="word">వదనం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">263</div>
+                            <div class="word">వదలక</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">264</div>
+                            <div class="word">వధ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">265</div>
+                            <div class="word">వన</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">266</div>
+                            <div class="word">వల</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">267</div>
+                            <div class="word">శకటం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">268</div>
+                            <div class="word">శకలం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">269</div>
+                            <div class="word">శయనం</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Page 11 -->
+            <div class="page" id="page11">
+                <div class="page-header">
+                    <div class="page-title">శ, స అక్షరాల పదాలు</div>
+                    <div class="page-number">పేజీ 11</div>
+                </div>
+                
+                <div class="alphabet-section">
+                    <div class="alphabet-header">శ, స ఆది అక్షరాల పదాలు</div>
+                    <div class="words-container">
+                        <div class="word-card">
+                            <div class="word-number">270</div>
+                            <div class="word">శరణం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">271</div>
+                            <div class="word">సంకల</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">272</div>
+                            <div class="word">సంస</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">273</div>
+                            <div class="word">సంతకం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">274</div>
+                            <div class="word">సంపద</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">275</div>
+                            <div class="word">సంబరం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">276</div>
+                            <div class="word">సంభవం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">277</div>
+                            <div class="word">సంశయం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">278</div>
+                            <div class="word">సతమతం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">279</div>
+                            <div class="word">సఫలం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">280</div>
+                            <div class="word">సభ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">281</div>
+                            <div class="word">సమత</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">282</div>
+                            <div class="word">సమతలం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">283</div>
+                            <div class="word">సమరం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">284</div>
+                            <div class="word">సరళ</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">285</div>
+                            <div class="word">సవరం</div>
+                        </div>
+                        <div class="word-card">
+                            <div class="word-number">286</div>
+                            <div class="word">సహనం</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="alphabet-section" style="margin-top: 40px;">
+                    <div class="alphabet-header">మొత్తం సారాంశం</div>
+                    <div style="background-color: #e6f2f2; padding: 20px; border-radius: 8px; text-align: center;">
+                        <p style="font-size: 1.2rem; color: #004d4d; margin-bottom: 10px;">
+                            <strong>మొత్తం పదాలు:</strong> 286 పదాలు
+                        </p>
+                        <p style="font-size: 1.1rem; color: #006666;">
+                            పేజీలు 1 నుండి 4 నుండి సంగ్రహించబడినవి<br>
+                            అక్షరం వారీగా వర్గీకరించబడ్డాయి
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Navigation -->
+            <div class="navigation">
+                <button class="nav-button" id="prevBtn" onclick="changePage(-1)">← మునుపటి పేజీ</button>
+                
+                <div class="page-selector">
+                    <span>పేజీ:</span>
+                    <select class="page-select" id="pageSelect" onchange="goToPage(this.value)">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                    </select>
+                    <span> / 11</span>
+                </div>
+                
+                <button class="nav-button" id="nextBtn" onclick="changePage(1)">తర్వాతి పేజీ →</button>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>సులువైన తెలుగు పదాలు - పేజీలు 1 నుండి 4 వరకు</p>
+            <p>అనేక్ తెలుగు ఫాంట్‌లో ప్రదర్శించబడ్డాయి | మొత్తం 286 పదాలు</p>
+        </div>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        const totalPages = 11;
+        
+        function changePage(direction) {
+            const newPage = currentPage + direction;
+            
+            if (newPage < 1 || newPage > totalPages) {
+                return;
+            }
+            
+            // Hide current page
+            document.getElementById(`page${currentPage}`).style.display = 'none';
+            
+            // Show new page
+            currentPage = newPage;
+            document.getElementById(`page${currentPage}`).style.display = 'block';
+            
+            // Update page selector
+            document.getElementById('pageSelect').value = currentPage;
+            
+            // Update button states
+            document.getElementById('prevBtn').disabled = currentPage === 1;
+            document.getElementById('nextBtn').disabled = currentPage === totalPages;
+            
+            // Scroll to top of page
+            window.scrollTo(0, 0);
+        }
+        
+        function goToPage(pageNumber) {
+            if (pageNumber < 1 || pageNumber > totalPages) {
+                return;
+            }
+            
+            // Hide current page
+            document.getElementById(`page${currentPage}`).style.display = 'none';
+            
+            // Show selected page
+            currentPage = parseInt(pageNumber);
+            document.getElementById(`page${currentPage}`).style.display = 'block';
+            
+            // Update button states
+            document.getElementById('prevBtn').disabled = currentPage === 1;
+            document.getElementById('nextBtn').disabled = currentPage === totalPages;
+            
+            // Scroll to top of page
+            window.scrollTo(0, 0);
+        }
+        
+        // Initialize page display
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hide all pages except the first one
+            for (let i = 2; i <= totalPages; i++) {
+                document.getElementById(`page${i}`).style.display = 'none';
+            }
+            
+            // Set initial button states
+            document.getElementById('prevBtn').disabled = true;
+            document.getElementById('nextBtn').disabled = totalPages === 1;
+            
+            // Initialize page selector
+            document.getElementById('pageSelect').value = 1;
+        });
+    </script>
+</body>
+</html>

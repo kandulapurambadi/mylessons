@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<h1 style="text-align: center;">కందులాపురం బడి </h1>
+    <title>300 Action Verbs - English Learning</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Anek Telugu', sans-serif;
+            background-color: #001f3f; /* Navy blue */
+            color: #FFD700; /* Gold color */
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #FFD700;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: #FFD700;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #FFD700;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .page-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: #0a2d5c;
+            border-radius: 10px;
+            flex-wrap: wrap;
+            gap: 15px;
+            border: 2px solid #FFD700;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .nav-btn {
+            background-color: #1c4b82;
+            color: #FFD700;
+            border: 2px solid #FFD700;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Anek Telugu', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .nav-btn:hover {
+            background-color: #FFD700;
+            color: #001f3f;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(255, 215, 0, 0.3);
+        }
+        
+        .nav-btn:disabled {
+            background-color: #0a2d5c;
+            color: #FFD700;
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .page-info {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #FFD700;
+        }
+        
+        .page-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .page-selector select {
+            background-color: #1c4b82;
+            color: #FFD700;
+            border: 2px solid #FFD700;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-family: 'Anek Telugu', sans-serif;
+            font-size: 1rem;
+            min-width: 150px;
+        }
+        
+        .verbs-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .verb-card {
+            background-color: #0a2d5c;
+            border-radius: 12px;
+            padding: 25px;
+            display: flex;
+            gap: 25px;
+            align-items: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border-left: 5px solid #FFD700;
+        }
+        
+        .verb-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .verb-image {
+            flex-shrink: 0;
+            width: 120px;
+            height: 120px;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #1c4b82;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid #FFD700;
+        }
+        
+        .verb-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .verb-content {
+            flex-grow: 1;
+        }
+        
+        .verb-english {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #FFD700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .verb-telugu {
+            font-size: 1.5rem;
+            color: #FFD700;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .pronunciation-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .verb-pronunciation {
+            font-size: 1.1rem;
+            color: #FFD700;
+            font-style: italic;
+            background-color: #1c4b82;
+            padding: 8px 15px;
+            border-radius: 6px;
+            display: inline-block;
+        }
+        
+        .pronounce-btn {
+            background-color: #FFD700;
+            color: #001f3f;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .pronounce-btn:hover {
+            background-color: #fff;
+            transform: scale(1.1);
+        }
+        
+        .verb-meaning {
+            font-size: 1rem;
+            color: #FFD700;
+            line-height: 1.5;
+            opacity: 0.9;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #0a2d5c;
+            border-radius: 10px;
+            border: 2px solid #FFD700;
+        }
+        
+        .page-number {
+            padding: 10px 15px;
+            background-color: #1c4b82;
+            color: #FFD700;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .page-number:hover {
+            background-color: #FFD700;
+            color: #001f3f;
+            transform: translateY(-2px);
+        }
+        
+        .page-number.active {
+            background-color: #FFD700;
+            color: #001f3f;
+            font-weight: 600;
+            border-color: #FFD700;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #FFD700;
+            color: #FFD700;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 1100px) {
+            .verbs-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .verb-card {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .page-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .nav-buttons {
+                justify-content: center;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .verb-english {
+                font-size: 1.8rem;
+                justify-content: center;
+            }
+            
+            .verb-telugu {
+                font-size: 1.3rem;
+            }
+            
+            .pronunciation-container {
+                justify-content: center;
+            }
+        }
+        
+        .vector-icon {
+            font-size: 3rem;
+            color: #FFD700;
+        }
+        
+        .icon-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        
+        .audio-icon {
+            font-size: 1.2rem;
+        }
+        
+        .listen-text {
+            font-size: 0.9rem;
+            color: #FFD700;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>300 Action Verbs</h1>
+            <p class="subtitle">Learn English action verbs with Telugu meanings and pronunciation</p>
+        </header>
+        
+        <div class="page-controls">
+            <div class="nav-buttons">
+                <button id="firstBtn" class="nav-btn">
+                    <span>⏮ First</span>
+                </button>
+                <button id="prevBtn" class="nav-btn">
+                    <span>◀ Previous</span>
+                </button>
+            </div>
+            
+            <div class="page-info">
+                Page <span id="currentPage">1</span> of <span id="totalPages">75</span>
+            </div>
+            
+            <div class="page-selector">
+                <span>Jump to:</span>
+                <select id="pageSelect"></select>
+            </div>
+            
+            <div class="nav-buttons">
+                <button id="nextBtn" class="nav-btn">
+                    <span>Next ▶</span>
+                </button>
+                <button id="lastBtn" class="nav-btn">
+                    <span>Last ⏭</span>
+                </button>
+            </div>
+        </div>
+        
+        <div id="verbsContainer" class="verbs-container">
+            <!-- Verbs will be loaded here by JavaScript -->
+        </div>
+        
+        <div class="pagination" id="pagination">
+            <!-- Page numbers will be generated here -->
+        </div>
+        
+        <footer>
+            <p>Designed for English language learners - 300 essential action verbs with Telugu translations</p>
+            <p>Click the 🔊 button to hear pronunciation of each verb</p>
+        </footer>
+    </div>
+
+    <script>
+        // Corrected vector icons for different verb categories
+        const vectorIcons = {
+            "Run": "🏃", "Jump": "🤸", "Walk": "🚶", "Swim": "🏊", 
+            "Dance": "💃", "Sing": "🎤", "Read": "📖", "Write": "✍️",
+            "Cook": "👨‍🍳", "Eat": "🍽️", "Drink": "🥤", "Sleep": "😴",
+            "Think": "🤔", "Speak": "🗣️", "Listen": "👂", "Watch": "👀",
+            "Play": "🎮", "Work": "💼", "Study": "📚", "Teach": "👨‍🏫",
+            "Learn": "🧠", "Create": "✨", "Build": "🏗️", "Draw": "🎨",
+            "Paint": "🖌️", "Drive": "🚗", "Fly": "✈️", "Climb": "🧗",
+            "Push": "⏩", "Pull": "⏪", "Lift": "🏋️", "Carry": "🛄",
+            "Throw": "🤾", "Catch": "🤲", "Kick": "🦵", "Hit": "👊",
+            "Break": "💔", "Fix": "🔧", "Clean": "🧹", "Wash": "🚿",
+            "Open": "🚪", "Close": "🚪", "Start": "▶️", "Stop": "⏹️",
+            "Begin": "🔛", "End": "🔚", "Finish": "🏁", "Continue": "➡️",
+            "Try": "🎯", "Help": "🆘", "Ask": "❓", "Answer": "💬",
+            "Tell": "🗨️", "Show": "👁️", "Give": "🎁", "Take": "🤲",
+            "Buy": "🛒", "Sell": "💰", "Pay": "💳", "Save": "💾",
+            "Find": "🔍", "Search": "🔎", "Look": "👁️", "See": "👁️",
+            "Hear": "👂", "Smell": "👃", "Taste": "👅", "Touch": "✋",
+            "Feel": "💖", "Hold": "🤗", "Move": "🔄", "Stand": "🧍",
+            "Sit": "🧘", "Lie": "🛌", "Wake": "⏰", "Dream": "💭",
+            "Hope": "🤞", "Wish": "🌟", "Want": "💭", "Need": "⚠️",
+            "Love": "❤️", "Like": "👍", "Hate": "👎", "Enjoy": "😊",
+            "Prefer": "⭐", "Choose": "✅", "Decide": "🤝", "Plan": "🗓️",
+            "Prepare": "📋", "Organize": "🗂️", "Arrange": "📊", "Collect": "📦",
+            "Gather": "👥", "Store": "🏪", "Keep": "💼", "Change": "🔄",
+            "Grow": "🌱", "Develop": "📈", "Improve": "📈", "Increase": "⬆️",
+            "Decrease": "⬇️", "Reduce": "📉", "Raise": "⬆️", "Lower": "⬇️",
+            "Cut": "✂️", "Divide": "➗", "Share": "🤝", "Join": "🔗",
+            "Connect": "🔌", "Mix": "🥣", "Combine": "🔀", "Separate": "➖",
+            "Remove": "🗑️", "Add": "➕", "Include": "✅", "Exclude": "❌",
+            "Accept": "✅", "Refuse": "❌", "Allow": "🟢", "Forbid": "🔴",
+            "Permit": "📜", "Invite": "📨", "Welcome": "👋", "Greet": "🙏",
+            "Meet": "🤝", "Visit": "🏠", "Leave": "🚪", "Arrive": "📍",
+            "Depart": "✈️", "Travel": "🧳", "Explore": "🗺️", "Discover": "🔭",
+            "Invent": "💡", "Design": "📐", "Make": "🔨", "Produce": "🏭",
+            "Manufacture": "🏭", "Assemble": "🧩", "Install": "🔩", "Repair": "🔧",
+            "Maintain": "🔧", "Protect": "🛡️", "Defend": "⚔️", "Attack": "⚔️",
+            "Fight": "🥊", "Win": "🏆", "Lose": "😞", "Score": "🎯",
+            "Celebrate": "🎉", "Congratulate": "👏", "Thank": "🙏", "Apologize": "🙇",
+            "Forgive": "🤝", "Promise": "🤞", "Agree": "👍", "Disagree": "👎",
+            "Argue": "💢", "Discuss": "💬", "Explain": "📝", "Describe": "📝",
+            "Define": "📖", "Identify": "🔎", "Recognize": "👁️", "Remember": "🧠",
+            "Forget": "🧠", "Recall": "🧠", "Imagine": "🌈", "Pretend": "🎭",
+            "Believe": "🙏", "Trust": "🤝", "Doubt": "❓", "Suspect": "🕵️",
+            "Check": "✅", "Verify": "🔍", "Confirm": "✅", "Prove": "📊",
+            "Test": "🧪", "Experiment": "🔬", "Research": "📚", "Analyze": "📊",
+            "Evaluate": "📋", "Measure": "📏", "Calculate": "🧮", "Count": "🔢",
+            "Estimate": "📈", "Predict": "🔮", "Forecast": "🌤️", "Schedule": "📅",
+            "Manage": "👨‍💼", "Control": "🎮", "Direct": "👉", "Lead": "🚩",
+            "Guide": "🗺️", "Instruct": "📖", "Train": "🏋️", "Coach": "👨‍🏫",
+            "Motivate": "💪", "Encourage": "👏", "Support": "🤗", "Assist": "🆘",
+            "Serve": "🍽️", "Provide": "📦", "Supply": "🚚", "Deliver": "📦",
+            "Transport": "🚛", "Transfer": "🔄", "Send": "📤", "Receive": "📥",
+            "Pick": "🍎", "Select": "✅", "Elect": "🗳️", "Vote": "🗳️",
+            "Appoint": "👑", "Assign": "📋", "Delegate": "🤝", "Distribute": "📦",
+            "Allocate": "📊", "Budget": "💰", "Finance": "💵", "Invest": "📈",
+            "Earn": "💰", "Spend": "💸", "Waste": "🗑️", "Store": "🏪",
+            "Own": "🏠", "Possess": "💎", "Purchase": "🛍️", "Acquire": "🛒",
+            "Obtain": "🎁", "Get": "🛒", "Gain": "📈", "Achieve": "🏆",
+            "Accomplish": "✅", "Complete": "🏁", "Succeed": "🎯", "Fail": "❌",
+            "Miss": "🎯", "Avoid": "🚫", "Prevent": "🛑", "Block": "🚧",
+            "Hinder": "🚫", "Delay": "⏳", "Wait": "⏳", "Stay": "🏨",
+            "Remain": "⏸️", "Last": "⏱️", "Endure": "💪", "Survive": "🏕️",
+            "Live": "🌍", "Die": "💀", "Born": "👶", "Age": "👴",
+            "Mature": "👨", "Evolve": "🦋", "Transform": "🦋", "Become": "➡️",
+            "Turn": "🔄", "Go": "➡️", "Come": "⬅️", "Return": "🔄",
+            "Come back": "🔄", "Revisit": "🔁", "Reenter": "🚪", "Reappear": "👻",
+            "Disappear": "👻", "Vanish": "🪄", "Fade": "🎨", "Shine": "✨",
+            "Glow": "💡", "Sparkle": "💎", "Twinkle": "🌟", "Flash": "⚡",
+            "Blink": "😉", "Wink": "😉", "Stare": "👁️", "Glare": "👁️",
+            "Observe": "🔭", "Notice": "👁️", "Spot": "🔍", "Detect": "🕵️",
+            "Locate": "📍", "Position": "📍", "Place": "📍", "Put": "📌",
+            "Set": "⚙️", "Lay": "🛏️", "Rest": "😌", "Relax": "😎",
+            "Nap": "😴", "Doze": "😴", "Snore": "😴", "Breathe": "🌬️",
+            "Inhale": "👃", "Exhale": "👄", "Sigh": "😔", "Yawn": "🥱",
+            "Cough": "🤧", "Sneeze": "🤧", "Laugh": "😄", "Smile": "😊",
+            "Grin": "😁", "Frown": "☹️", "Cry": "😢", "Weep": "😭",
+            "Sob": "😭", "Shout": "📢", "Scream": "😱", "Whisper": "🤫",
+            "Murmur": "🗣️", "Mumble": "🗣️", "Chat": "💬", "Talk": "🗨️",
+            "Say": "🗣️", "Narrate": "📖", "Recite": "🎤", "Repeat": "🔁",
+            "Copy": "📋", "Imitate": "👯", "Mimic": "🦜", "Follow": "👣",
+            "Point": "👉", "Indicate": "👉", "Signal": "🚦", "Wave": "👋",
+            "Nod": "👍", "Shake": "👋", "Rotate": "🔄", "Spin": "🌀",
+            "Twist": "🔀", "Bend": "🔄", "Stretch": "🤸", "Reach": "✋",
+            "Grab": "✋", "Squeeze": "🤏", "Press": "👆", "Drop": "⬇️",
+            "Strike": "👊", "Beat": "🥁", "Guard": "🛡️", "Rescue": "🆘",
+            "Aid": "🆘", "Finish": "🏁", "Come": "⬅️", "Return": "🔄",
+            "Go": "➡️", "Enter": "🚪", "Exit": "🚪", "Arrive": "📍",
+            "Depart": "✈️", "Approach": "➡️", "Retreat": "⬅️", "Advance": "➡️",
+            "Retreat": "⬅️", "Ascend": "⬆️", "Descend": "⬇️", "Rise": "🌅",
+            "Fall": "🍂", "Drop": "💧", "Land": "🛬", "Take off": "🛫",
+            "Launch": "🚀", "Land": "🛬", "Float": "🛟", "Sink": "⬇️",
+            "Dive": "🤿", "Surface": "⬆️", "Emerge": "⬆️", "Submerge": "⬇️",
+            "Float": "🛟", "Flow": "💧", "Pour": "🥤", "Spill": "💧",
+            "Leak": "💧", "Drip": "💧", "Sprinkle": "💦", "Spray": "💦",
+            "Splash": "💦", "Wipe": "🧻", "Polish": "✨", "Brush": "🪥",
+            "Comb": "💇", "Shave": "🪒", "Trim": "✂️", "Cut": "✂️",
+            "Slice": "🔪", "Chop": "🔪", "Peel": "🍌", "Grate": "🧀",
+            "Mix": "🥣", "Stir": "🥄", "Beat": "🥚", "Whisk": "🥚",
+            "Knead": "🍞", "Roll": "🥐", "Spread": "🔪", "Butter": "🧈",
+            "Pour": "🥤", "Serve": "🍽️", "Pass": "🤲", "Receive": "🤲",
+            "Hand": "🤲", "Exchange": "🔄", "Trade": "🤝", "Barter": "🤝",
+            "Negotiate": "🤝", "Bargain": "💰", "Haggle": "💰", "Compromise": "🤝",
+            "Settle": "✅", "Resolve": "✅", "Solve": "✅", "Answer": "💬"
+        };
+        
+        // Get appropriate icon for verb
+        function getVerbIcon(verb) {
+            return vectorIcons[verb] || "🔤";
+        }
+        
+        // Text-to-Speech function for pronunciation
+        function speakText(text, lang = 'en-US') {
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = lang;
+                utterance.rate = 0.8; // Slower speech for learning
+                speechSynthesis.speak(utterance);
+            } else {
+                alert('Text-to-speech is not supported in your browser. Please try Chrome, Edge, or Safari.');
+            }
+        }
+        
+        // Sample data structure for verbs - In a real application, this would be a complete dataset
+        const verbsData = Array.from({length: 300}, (_, index) => {
+            const verbNum = index + 1;
+            const englishVerb = getVerbEnglish(verbNum);
+            return {
+                id: index,
+                english: englishVerb,
+                telugu: getVerbTelugu(verbNum),
+                pronunciation: getPronunciation(verbNum),
+                meaning: getVerbMeaning(verbNum),
+                icon: getVerbIcon(englishVerb)
+            };
+        });
+        
+        // Helper functions to generate verb data
+        function getVerbEnglish(num) {
+            const verbs = [
+                "Run", "Jump", "Walk", "Swim", "Dance", "Sing", "Read", "Write",
+                "Cook", "Eat", "Drink", "Sleep", "Think", "Speak", "Listen", "Watch",
+                "Play", "Work", "Study", "Teach", "Learn", "Create", "Build", "Draw",
+                "Paint", "Drive", "Fly", "Climb", "Push", "Pull", "Lift", "Carry",
+                "Throw", "Catch", "Kick", "Hit", "Break", "Fix", "Clean", "Wash",
+                "Open", "Close", "Start", "Stop", "Begin", "End", "Finish", "Continue",
+                "Try", "Help", "Ask", "Answer", "Tell", "Show", "Give", "Take",
+                "Buy", "Sell", "Pay", "Save", "Find", "Search", "Look", "See",
+                "Hear", "Smell", "Taste", "Touch", "Feel", "Hold", "Move", "Stand",
+                "Sit", "Lie", "Wake", "Sleep", "Dream", "Hope", "Wish", "Want",
+                "Need", "Love", "Like", "Hate", "Enjoy", "Prefer", "Choose", "Decide",
+                "Plan", "Prepare", "Organize", "Arrange", "Collect", "Gather", "Store", "Keep",
+                "Change", "Grow", "Develop", "Improve", "Increase", "Decrease", "Reduce", "Raise",
+                "Lower", "Cut", "Divide", "Share", "Join", "Connect", "Mix", "Combine",
+                "Separate", "Remove", "Add", "Include", "Exclude", "Accept", "Refuse", "Allow",
+                "Forbid", "Permit", "Invite", "Welcome", "Greet", "Meet", "Visit", "Leave",
+                "Arrive", "Depart", "Travel", "Explore", "Discover", "Invent", "Design", "Build",
+                "Make", "Produce", "Manufacture", "Assemble", "Install", "Repair", "Maintain", "Protect",
+                "Defend", "Attack", "Fight", "Win", "Lose", "Score", "Celebrate", "Congratulate",
+                "Thank", "Apologize", "Forgive", "Promise", "Agree", "Disagree", "Argue", "Discuss",
+                "Explain", "Describe", "Define", "Identify", "Recognize", "Remember", "Forget", "Recall",
+                "Imagine", "Pretend", "Believe", "Trust", "Doubt", "Suspect", "Check", "Verify",
+                "Confirm", "Prove", "Test", "Experiment", "Research", "Analyze", "Evaluate", "Measure",
+                "Calculate", "Count", "Estimate", "Predict", "Forecast", "Plan", "Schedule", "Arrange",
+                "Manage", "Control", "Direct", "Lead", "Guide", "Instruct", "Train", "Coach",
+                "Motivate", "Encourage", "Support", "Assist", "Serve", "Provide", "Supply", "Deliver",
+                "Transport", "Move", "Transfer", "Send", "Receive", "Collect", "Gather", "Pick",
+                "Choose", "Select", "Elect", "Vote", "Appoint", "Assign", "Delegate", "Distribute",
+                "Divide", "Share", "Allocate", "Budget", "Finance", "Invest", "Earn", "Spend",
+                "Waste", "Save", "Store", "Keep", "Hold", "Own", "Possess", "Buy",
+                "Purchase", "Acquire", "Obtain", "Get", "Gain", "Achieve", "Accomplish", "Complete",
+                "Finish", "Succeed", "Fail", "Lose", "Miss", "Avoid", "Prevent", "Stop",
+                "Block", "Hinder", "Delay", "Wait", "Stay", "Remain", "Continue", "Last",
+                "Endure", "Survive", "Live", "Die", "Born", "Grow", "Age", "Mature",
+                "Develop", "Evolve", "Change", "Transform", "Become", "Turn", "Go", "Come",
+                "Return", "Come back", "Revisit", "Reenter", "Reappear", "Disappear", "Vanish", "Fade",
+                "Shine", "Glow", "Sparkle", "Twinkle", "Flash", "Blink", "Wink", "Stare",
+                "Glare", "Look", "See", "Observe", "Notice", "Spot", "Detect", "Discover",
+                "Find", "Locate", "Position", "Place", "Put", "Set", "Lay", "Stand",
+                "Sit", "Rest", "Relax", "Sleep", "Nap", "Doze", "Dream", "Snore",
+                "Breathe", "Inhale", "Exhale", "Sigh", "Yawn", "Cough", "Sneeze", "Laugh",
+                "Smile", "Grin", "Frown", "Cry", "Weep", "Sob", "Shout", "Scream",
+                "Whisper", "Murmur", "Mumble", "Chat", "Talk", "Speak", "Say", "Tell",
+                "Narrate", "Recite", "Repeat", "Copy", "Imitate", "Mimic", "Follow", "Lead",
+                "Guide", "Direct", "Point", "Show", "Indicate", "Signal", "Wave", "Nod",
+                "Shake", "Turn", "Rotate", "Spin", "Twist", "Bend", "Stretch", "Reach",
+                "Grab", "Hold", "Squeeze", "Press", "Push", "Pull", "Lift", "Drop",
+                "Throw", "Catch", "Kick", "Hit", "Strike", "Beat", "Fight", "Defend",
+                "Attack", "Protect", "Guard", "Save", "Rescue", "Help", "Aid", "Assist"
+            ];
+            return verbs[num - 1] || `Verb ${num}`;
+        }
+        
+        function getVerbTelugu(num) {
+            const teluguVerbs = [
+                "పరుగెత్తు", "దూకు", "నడచు", "ఈదు", "నాట్యం చేయు", "పాడు", "చదువు", "వ్రాయు",
+                "వంట చేయు", "తిను", "త్రాగు", "నిద్రించు", "ఆలోచించు", "మాట్లాడు", "విను", "చూడు",
+                "ఆడు", "పని చేయు", "చదువు", "నేర్పు", "నేర్చుకో", "సృష్టించు", "నిర్మించు", "గీయు",
+                "పెయింట్ చేయు", "డ్రైవ్ చేయు", "ఫ్లై చేయు", "ఎక్కు", "నెట్టు", "లాగు", "ఎత్తు", "మోయు",
+                "విసిరేయు", "పట్టుకో", "కిక్ మార్చు", "కొట్టు", "ముక్కలు చేయు", "సరి చేయు", "శుభ్రం చేయు", "కడుగు",
+                "తెరువు", "మూయు", "ప్రారంభించు", "ఆపు", "మొదలు పెట్టు", "ముగించు", "పూర్తి చేయు", "కొనసాగించు",
+                "ప్రయత్నించు", "సహాయించు", "కోరు", "జవాబు ఇవ్వు", "చెప్పు", "చూపించు", "ఇవ్వు", "తీసుకో",
+                "కొను", "విక్రయించు", "చెల్లించు", "సేవ్ చేయు", "కనుగొను", "వెతుకు", "చూడు", "చూడు",
+                "విను", "వాసన చూడు", "రుచి చూడు", "తాకు", "అనుభవించు", "పట్టుకో", "కదులు", "నిలబడు",
+                "కూర్చో", "పరుండు", "మేల్కొను", "నిద్రించు", "స్వప్నం చూడు", "ఆశించు", "కోరు", "కావాలి",
+                "అవసరం", "ప్రేమించు", "ఇష్టపడు", "ద్వేషించు", "ఆనందించు", "ఇష్టపడు", "ఎంచుకో", "నిర్ణయించు",
+                "ప్లాన్ చేయు", "సిద్ధం చేయు", "ఆర్గనైజ్ చేయు", "ఏర్పాటు చేయు", "సేకరించు", "సేకరించు", "నిల్వ చేయు", "ఉంచు",
+                "మార్చు", "పెరుగు", "అభివృద్ధి చేయు", "మెరుగు పరచు", "పెంచు", "తగ్గించు", "తగ్గించు", "పెంచు",
+                "తగ్గించు", "కత్తిరించు", "విభజించు", "పంచుకో", "చేరు", "కనెక్ట్ చేయు", "మిక్స్ చేయు", "కలపు",
+                "వేరు చేయు", "తొలగించు", "జోడించు", "చేర్చు", "తొలగించు", "అంగీకరించు", "తిరస్కరించు", "అనుమతించు",
+                "నిషేధించు", "అనుమతించు", "ఆహ్వానించు", "స్వాగతించు", "పలకరించు", "కలవు", "సందర్శించు", "విడిచిపెట్టు",
+                "చేరు", "వెళ్ళు", "ప్రయాణించు", "అన్వేషించు", "కనుగొను", "కనుగొను", "డిజైన్ చేయు", "నిర్మించు",
+                "తయారు చేయు", "ఉత్పత్తి చేయు", "తయారు చేయు", "అసెంబుల్ చేయు", "ఇన్స్టాల్ చేయు", "రిపేర్ చేయు", "మెయింటైన్ చేయు", "రక్షించు",
+                "రక్షించు", "దాడి చేయు", "పోరాడు", "గెలుచు", "ఓడు", "స్కోర్ చేయు", "సంబరం చేయు", "అభినందించు",
+                "ధన్యవాదాలు చెప్పు", "క్షమాపణ చెప్పు", "క్షమించు", "వాగ్దానం చేయు", "అంగీకరించు", "అసమ్మతి చెప్పు", "వాదించు", "చర్చించు",
+                "వివరించు", "వర్ణించు", "నిర్వచించు", "గుర్తించు", "గుర్తించు", "గుర్తుంచుకో", "మరచిపో", "గుర్తుకు తెచ్చుకో",
+                "ఊహించు", "నటించు", "నమ్ము", "విశ్వాసం ఉంచు", "సందేహించు", "అనుమానించు", "తనిఖీ చేయు", "ధృవీకరించు",
+                "నిర్ధారించు", "నిరూపించు", "పరీక్షించు", "ప్రయోగం చేయు", "రీసర్చ్ చేయు", "విశ్లేషించు", "మూల్యాంకనం చేయు", "కొలవు",
+                "లెక్కించు", "లెక్కించు", "అంచనా వేయు", "ఊహించు", "అంచనా వేయు", "ప్లాన్ చేయు", "శెడ్యూల్ చేయు", "ఏర్పాటు చేయు",
+                "నిర్వహించు", "నియంత్రించు", "దర్శకత్వం వహించు", "నాయకత్వం వహించు", "మార్గదర్శకత్వం వహించు", "నేర్పు", "శిక్షణ ఇవ్వు", "కోచ్ చేయు",
+                "ప్రేరేపించు", "ఉత్తేజపరచు", "మద్దతు ఇవ్వు", "సహాయం చేయు", "సేవ చేయు", "అందించు", "సరఫరా చేయు", "డెలివర్ చేయు",
+                "రవాణా చేయు", "కదులు", "బదిలీ చేయు", "పంపు", "స్వీకరించు", "సేకరించు", "సేకరించు", "ఎంచుకో",
+                "ఎంచుకో", "ఎంచుకో", "ఎన్నుకో", "వోట్ వేయు", "నియమించు", "కేటాయించు", "అప్పగించు", "పంపిణీ చేయు",
+                "విభజించు", "పంచుకో", "కేటాయించు", "బడ్జెట్ చేయు", "ఫైనాన్స్ చేయు", "ఇన్వెస్ట్ చేయు", "సంపాదించు", "ఖర్చు చేయు",
+                "వృథా చేయు", "సేవ్ చేయు", "నిల్వ చేయు", "ఉంచు", "పట్టుకో", "స్వంతం చేయు", "స్వంతం చేయు", "కొను",
+                "కొనుగోలు చేయు", "సంపాదించు", "పొందు", "పొందు", "పొందు", "సాధించు", "పూర్తి చేయు", "పూర్తి చేయు",
+                "పూర్తి చేయు", "విజయం సాధించు", "ఫెయిల్ అవ్వు", "ఓడు", "మిస్ అవ్వు", "తప్పించుకో", "నిరోధించు", "ఆపు",
+                "బ్లాక్ చేయు", "అడ్డుపడు", "ఆలస్యం చేయు", "వేచి ఉండు", "ఉండు", "ఉండు", "కొనసాగించు", "ఉండు",
+                "సహించు", "బ్రతుకు", "బ్రతుకు", "చనిపో", "పుట్టు", "పెరుగు", "వయస్సు అవ్వు", "పరిపక్వత చెందు",
+                "అభివృద్ధి చేయు", "పరిణామం చెందు", "మార్చు", "మార్పు చెందు", "అవ్వు", "మారు", "వెళ్ళు", "రా",
+                "తిరిగి రా", "తిరిగి రా", "మళ్ళీ సందర్శించు", "మళ్ళీ ప్రవేశించు", "మళ్ళీ కనిపించు", "అదృశ్యం అవ్వు", "అదృశ్యం అవ్వు", "క్రమేణా అదృశ్యం అవ్వు",
+                "ప్రకాశించు", "ప్రకాశించు", "మిణుకు మిణుకు మని ప్రకాశించు", "మిణుకు మిణుకు మని ప్రకాశించు", "ఫ్లాష్ అవ్వు", "మిటకరించు", "కన్ను రెప్ప వేయు", "ఉన్నతంగా చూడు",
+                "కోపంగా చూడు", "చూడు", "చూడు", "గమనించు", "గమనించు", "గుర్తించు", "గుర్తించు", "కనుగొను",
+                "కనుగొను", "స్థానం నిర్ణయించు", "ఉంచు", "ఉంచు", "సెట్ చేయు", "పరచు", "నిలబడు",
+                "కూర్చో", "విశ్రాంతి తీసుకో", "విశ్రాంతి తీసుకో", "నిద్రించు", "టుకుటుకు నిద్రించు", "టుకుటుకు నిద్రించు", "స్వప్నం చూడు", "గురక వేయు",
+                "శ్వాస తీసుకో", "శ్వాస లోపలికి తీసుకో", "శ్వాస బయటకు విడుచు", "నిట్టూర్పు విడుచు", "ఆవులించు", "దగ్గు", "తుమ్ము", "నవ్వు",
+                "చిరునవ్వు నవ్వు", "పెద్దగా నవ్వు", "చిన్నబుచ్చు", "ఏడ్చు", "ఏడ్చు", "ఏడ్చు", "కేక వేయు", "అరచు",
+                "గుసగుసలాడు", "గుసగుసలాడు", "గొణుగుకో", "చాట్ చేయు", "మాట్లాడు", "మాట్లాడు", "చెప్పు", "చెప్పు",
+                "వర్ణించు", "రిటైట్ చేయు", "పునరావృతం చేయు", "కాపీ చేయు", "అనుకరించు", "అనుకరించు", "అనుసరించు", "నాయకత్వం వహించు",
+                "మార్గదర్శకత్వం వహించు", "దర్శకత్వం వహించు", "చూపించు", "చూపించు", "సూచించు", "సిగ్నల్ ఇవ్వు", "వేవ్ చేయు", "హే ఇవ్వు",
+                "అల్లాడు", "తిరుగు", "తిరుగు", "తిరుగు", "తిప్పు", "వంగు", "విస్తరించు", "చేరు",
+                "పట్టుకో", "పట్టుకో", "పిసుకు", "ప్రెస్ చేయు", "నెట్టు", "లాగు", "ఎత్తు", "విడిచిపెట్టు",
+                "విసిరేయు", "పట్టుకో", "కిక్ మార్చు", "కొట్టు", "కొట్టు", "కొట్టు", "పోరాడు", "రక్షించు",
+                "దాడి చేయు", "రక్షించు", "రక్షించు", "సేవ్ చేయు", "రక్షించు", "సహాయించు", "సహాయం చేయు", "సహాయం చేయు"
+            ];
+            return teluguVerbs[num - 1] || `క్రియ ${num}`;
+        }
+        
+        function getPronunciation(num) {
+            const pronunciations = [
+                "/rʌn/", "/dʒʌmp/", "/wɔːk/", "/swɪm/", "/dæns/", "/sɪŋ/", "/riːd/", "/raɪt/",
+                "/kʊk/", "/iːt/", "/drɪŋk/", "/sliːp/", "/θɪŋk/", "/spiːk/", "/ˈlɪs.ən/", "/wɒtʃ/",
+                "/pleɪ/", "/wɜːk/", "/ˈstʌd.i/", "/tiːtʃ/", "/lɜːn/", "/kriˈeɪt/", "/bɪld/", "/drɔː/",
+                "/peɪnt/", "/draɪv/", "/flaɪ/", "/klaɪm/", "/pʊʃ/", "/pʊl/", "/lɪft/", "/ˈkær.i/",
+                "/θroʊ/", "/kætʃ/", "/kɪk/", "/hɪt/", "/breɪk/", "/fɪks/", "/kliːn/", "/wɒʃ/",
+                "/ˈəʊ.pən/", "/kləʊz/", "/stɑːt/", "/stɒp/", "/bɪˈɡɪn/", "/end/", "/ˈfɪn.ɪʃ/", "/kənˈtɪn.juː/",
+                "/traɪ/", "/help/", "/æsk/", "/ˈɑːn.sər/", "/tel/", "/ʃəʊ/", "/ɡɪv/", "/teɪk/",
+                "/baɪ/", "/sel/", "/peɪ/", "/seɪv/", "/faɪnd/", "/sɜːtʃ/", "/lʊk/", "/siː/",
+                "/hɪər/", "/smel/", "/teɪst/", "/tʌtʃ/", "/fiːl/", "/həʊld/", "/muːv/", "/stænd/",
+                "/sɪt/", "/laɪ/", "/weɪk/", "/sliːp/", "/driːm/", "/həʊp/", "/wɪʃ/", "/wɒnt/",
+                "/niːd/", "/lʌv/", "/laɪk/", "/heɪt/", "/ɪnˈdʒɔɪ/", "/prɪˈfɜːr/", "/tʃuːz/", "/dɪˈsaɪd/",
+                "/plæn/", "/prɪˈpeər/", "/ˈɔː.ɡən.aɪz/", "/əˈreɪndʒ/", "/kəˈlekt/", "/ˈɡæð.ər/", "/stɔːr/", "/kiːp/",
+                "/tʃeɪndʒ/", "/ɡroʊ/", "/dɪˈvel.əp/", "/ɪmˈpruːv/", "/ɪnˈkriːs/", "/dɪˈkriːs/", "/rɪˈdjuːs/", "/reɪz/",
+                "/ˈləʊ.ər/", "/kʌt/", "/dɪˈvaɪd/", "/ʃeər/", "/dʒɔɪn/", "/kəˈnekt/", "/mɪks/", "/kəmˈbaɪn/",
+                "/ˈsep.ər.eɪt/", "/rɪˈmuːv/", "/æd/", "/ɪnˈkluːd/", "/ɪkˈskluːd/", "/əkˈsept/", "/rɪˈfjuːz/", "/əˈlaʊ/",
+                "/fəˈbɪd/", "/pəˈmɪt/", "/ɪnˈvaɪt/", "/ˈwel.kəm/", "/ɡriːt/", "/miːt/", "/ˈvɪz.ɪt/", "/liːv/",
+                "/əˈraɪv/", "/dɪˈpɑːt/", "/ˈtræv.əl/", "/ɪkˈsplɔːr/", "/dɪˈskʌv.ər/", "/ɪnˈvent/", "/dɪˈzaɪn/", "/bɪld/",
+                "/meɪk/", "/prəˈdjuːs/", "/ˌmæn.jʊˈfæk.tʃər/", "/əˈsem.bəl/", "/ɪnˈstɔːl/", "/rɪˈpeər/", "/meɪnˈteɪn/", "/prəˈtekt/",
+                "/dɪˈfend/", "/əˈtæk/", "/faɪt/", "/wɪn/", "/luːz/", "/skɔːr/", "/ˈsel.ə.breɪt/", "/kənˈɡrætʃ.ə.leɪt/",
+                "/θæŋk/", "/əˈpɒl.ə.dʒaɪz/", "/fəˈɡɪv/", "/ˈprɒm.ɪs/", "/əˈɡriː/", "/ˌdɪs.əˈɡriː/", "/ˈɑːɡ.juː/", "/dɪˈskʌs/",
+                "/ɪkˈspleɪn/", "/dɪˈskraɪb/", "/dɪˈfaɪn/", "/aɪˈden.tɪ.faɪ/", "/ˈrek.əɡ.naɪz/", "/rɪˈmem.bər/", "/fəˈɡet/", "/rɪˈkɔːl/",
+                "/ɪˈmædʒ.ɪn/", "/prɪˈtend/", "/bɪˈliːv/", "/trʌst/", "/daʊt/", "/səˈspekt/", "/tʃek/", "/ˈver.ɪ.faɪ/",
+                "/kənˈfɜːm/", "/pruːv/", "/test/", "/ɪkˈsper.ɪ.ment/", "/rɪˈsɜːtʃ/", "/ˈæn.ə.laɪz/", "/ɪˈvæl.ju.eɪt/", "/ˈmeʒ.ər/",
+                "/ˈkæl.kjə.leɪt/", "/kaʊnt/", "/ˈes.tɪ.meɪt/", "/prɪˈdɪkt/", "/ˈfɔː.kɑːst/", "/plæn/", "/ˈʃed.juːl/", "/əˈreɪndʒ/",
+                "/ˈmæn.ɪdʒ/", "/kənˈtrəʊl/", "/dɪˈrekt/", "/liːd/", "/ɡaɪd/", "/ɪnˈstrʌkt/", "/treɪn/", "/kəʊtʃ/",
+                "/ˈməʊ.tɪ.veɪt/", "/ɪnˈkʌr.ɪdʒ/", "/səˈpɔːt/", "/əˈsɪst/", "/sɜːv/", "/prəˈvaɪd/", "/səˈplaɪ/", "/dɪˈlɪv.ər/",
+                "/trænˈspɔːt/", "/muːv/", "/trænsˈfɜːr/", "/send/", "/rɪˈsiːv/", "/kəˈlekt/", "/ˈɡæð.ər/", "/pɪk/",
+                "/tʃuːz/", "/sɪˈlekt/", "/ɪˈlekt/", "/vəʊt/", "/əˈpɔɪnt/", "/əˈsaɪn/", "/ˈdel.ɪ.ɡeɪt/", "/dɪˈstrɪb.juːt/",
+                "/dɪˈvaɪd/", "/ʃeər/", "/ˈæl.ə.keɪt/", "/ˈbʌdʒ.ɪt/", "/ˈfaɪ.næns/", "/ɪnˈvest/", "/ɜːn/", "/spend/",
+                "/weɪst/", "/seɪv/", "/stɔːr/", "/kiːp/", "/həʊld/", "/əʊn/", "/pəˈzes/", "/baɪ/",
+                "/ˈpɜː.tʃəs/", "/əˈkwaɪər/", "/əbˈteɪn/", "/ɡet/", "/ɡeɪn/", "/əˈtʃiːv/", "/əˈkʌm.plɪʃ/", "/kəmˈpliːt/",
+                "/ˈfɪn.ɪʃ/", "/səkˈsiːd/", "/feɪl/", "/luːz/", "/mɪs/", "/əˈvɔɪd/", "/prɪˈvent/", "/stɒp/",
+                "/blɒk/", "/ˈhɪn.dər/", "/dɪˈleɪ/", "/weɪt/", "/steɪ/", "/rɪˈmeɪn/", "/kənˈtɪn.juː/", "/lɑːst/",
+                "/ɪnˈdjʊər/", "/səˈvaɪv/", "/lɪv/", "/daɪ/", "/bɔːn/", "/ɡroʊ/", "/eɪdʒ/", "/məˈtʃʊər/",
+                "/dɪˈvel.əp/", "/ɪˈvɒlv/", "/tʃeɪndʒ/", "/trænsˈfɔːm/", "/bɪˈkʌm/", "/tɜːn/", "/ɡəʊ/", "/kʌm/",
+                "/rɪˈtɜːn/", "/kʌm bæk/", "/riːˈvɪz.ɪt/", "/riːˈen.tər/", "/ˌriː.əˈpɪər/", "/ˌdɪs.əˈpɪər/", "/ˈvæn.ɪʃ/", "/feɪd/",
+                "/ʃaɪn/", "/ɡləʊ/", "/ˈspɑː.kəl/", "/ˈtwɪŋ.kəl/", "/flæʃ/", "/blɪŋk/", "/wɪŋk/", "/steər/",
+                "/ɡleər/", "/lʊk/", "/siː/", "/əbˈzɜːv/", "/ˈnəʊ.tɪs/", "/spɒt/", "/dɪˈtekt/", "/dɪˈskʌv.ər/",
+                "/faɪnd/", "/ləʊˈkeɪt/", "/pəˈzɪʃ.ən/", "/pleɪs/", "/pʊt/", "/set/", "/leɪ/", "/stænd/",
+                "/sɪt/", "/rest/", "/rɪˈlæks/", "/sliːp/", "/næp/", "/dəʊz/", "/driːm/", "/snɔːr/",
+                "/briːð/", "/ɪnˈheɪl/", "/eksˈheɪl/", "/saɪ/", "/jɔːn/", "/kɒf/", "/sniːz/", "/lɑːf/",
+                "/smaɪl/", "/ɡrɪn/", "/fraʊn/", "/kraɪ/", "/wiːp/", "/sɒb/", "/ʃaʊt/", "/skriːm/",
+                "/ˈwɪs.pər/", "/ˈmɜː.mər/", "/ˈmʌm.bəl/", "/tʃæt/", "/tɔːk/", "/spiːk/", "/seɪ/", "/tel/",
+                "/nəˈreɪt/", "/rɪˈsaɪt/", "/rɪˈpiːt/", "/ˈkɒp.i/", "/ˈɪm.ɪ.teɪt/", "/ˈmɪm.ɪk/", "/ˈfɒl.əʊ/", "/liːd/",
+                "/ɡaɪd/", "/dɪˈrekt/", "/pɔɪnt/", "/ʃəʊ/", "/ˈɪn.dɪ.keɪt/", "/ˈsɪɡ.nəl/", "/weɪv/", "/nɒd/",
+                "/ʃeɪk/", "/tɜːn/", "/rəʊˈteɪt/", "/spɪn/", "/twɪst/", "/bend/", "/stretʃ/", "/riːtʃ/",
+                "/ɡræb/", "/həʊld/", "/skwiːz/", "/pres/", "/pʊʃ/", "/pʊl/", "/lɪft/", "/drɒp/",
+                "/θroʊ/", "/kætʃ/", "/kɪk/", "/hɪt/", "/straɪk/", "/biːt/", "/faɪt/", "/dɪˈfend/",
+                "/əˈtæk/", "/prəˈtekt/", "/ɡɑːd/", "/seɪv/", "/ˈres.kjuː/", "/help/", "/eɪd/", "/əˈsɪst/"
+            ];
+            return pronunciations[num - 1] || "/vɜːrb/";
+        }
+        
+        function getVerbMeaning(num) {
+            const meanings = [
+                "To move quickly using your legs", "To push yourself off the ground using your legs", "To move at a regular pace by lifting and setting down each foot", "To move through water by moving your body",
+                "To move your body rhythmically to music", "To make musical sounds with your voice", "To look at and understand written words", "To form letters or words on a surface",
+                "To prepare food by heating it", "To put food in your mouth and swallow it", "To take liquid into your mouth and swallow it", "To rest with your eyes closed and your mind unconscious",
+                "To use your mind to consider something", "To say words aloud", "To pay attention to sound", "To look at something for a period of time",
+                "To engage in activity for enjoyment", "To do a job or task", "To learn about a subject", "To show someone how to do something",
+                "To gain knowledge or skill", "To make something new", "To construct something", "To make pictures with a pencil or pen",
+                "To apply color to a surface", "To operate a vehicle", "To move through air", "To go up something",
+                "To apply force to move something away", "To apply force to move something toward you", "To raise something up", "To hold something and take it somewhere",
+                "To send something through the air", "To stop and hold something moving through air", "To hit something with your foot", "To strike something with force",
+                "To separate into pieces", "To repair something", "To make something free from dirt", "To clean something with water and usually soap",
+                "To move something so it is not closed", "To move something so it covers an opening", "To begin something", "To end movement or activity",
+                "To start something", "To finish something", "To complete something", "To keep doing something",
+                "To make an effort to do something", "To make it easier for someone to do something", "To say something to get information", "To respond to a question",
+                "To give information to someone", "To let someone see something", "To transfer something to someone", "To get or receive something",
+                "To get something by paying money", "To give something in exchange for money", "To give money for something", "To keep money for future use",
+                "To discover something", "To look for something", "To direct your eyes toward something", "To perceive with your eyes",
+                "To perceive sound", "To perceive odor", "To perceive flavor", "To come into contact with something",
+                "To experience an emotion or sensation", "To have something in your hand", "To change position", "To be on your feet",
+                "To rest on your bottom", "To be in a horizontal position", "To stop sleeping", "To be in a state of rest",
+                "To have images and thoughts while sleeping", "To want something to happen", "To want something", "To desire something",
+                "To require something", "To have strong affection for someone", "To find something pleasant", "To have strong dislike for something",
+                "To take pleasure in something", "To like one thing more than another", "To pick from options", "To make a choice",
+                "To decide on a course of action", "To make ready", "To arrange systematically", "To put in order",
+                "To bring things together", "To come together", "To keep for future use", "To have or retain possession",
+                "To make different", "To increase in size", "To cause to grow", "To make better",
+                "To become larger", "To become smaller", "To make smaller", "To lift or move upward",
+                "To reduce height", "To divide with a sharp tool", "To separate into parts", "To divide among people",
+                "To connect", "To link together", "To combine substances", "To join together",
+                "To set apart", "To take away", "To put with something else", "To contain as part of something",
+                "To leave out", "To receive willingly", "To decline to accept", "To permit",
+                "To prohibit", "To give permission", "To request someone's presence", "To greet kindly",
+                "To address politely", "To come together", "To go to see someone", "To go away from",
+                "To reach a destination", "To go away", "To go on a journey", "To travel to learn about",
+                "To find something unknown", "To create something new", "To plan and create", "To construct",
+                "To create something", "To create goods", "To make goods in factories", "To put parts together",
+                "To set up equipment", "To fix something broken", "To keep in good condition", "To keep safe from harm",
+                "To resist attack", "To use violence against", "To engage in conflict", "To be victorious",
+                "To not win", "To gain points", "To observe an occasion with joy", "To express pleasure at someone's success",
+                "To express gratitude", "To say sorry", "To stop feeling angry", "To commit to do something",
+                "To have same opinion", "To have different opinion", "To exchange opposing views", "To talk about",
+                "To make clear", "To give details about", "To state meaning", "To establish identity",
+                "To know from before", "To keep in memory", "To fail to remember", "To bring back to memory",
+                "To form mental image", "To act as if something is true", "To accept as true", "To have confidence in",
+                "To feel uncertain", "To believe guilt", "To examine accuracy", "To confirm truth",
+                "To state with assurance", "To demonstrate truth", "To try out", "To perform scientific test",
+                "To study carefully", "To examine in detail", "To assess value", "To find size or amount",
+                "To compute mathematically", "To say numbers in order", "To roughly calculate", "To say what will happen",
+                "To predict future", "To decide future action", "To plan time of events", "To organize",
+                "To be in charge", "To exercise power over", "To supervise", "To be in charge",
+                "To show the way", "To teach formally", "To teach skills", "To train or advise",
+                "To provide reason to act", "To give support", "To give assistance", "To help",
+                "To perform duties", "To make available", "To give what is needed", "To bring to destination",
+                "To carry from place to place", "To change position", "To change place", "To cause to go",
+                "To be given something", "To bring together", "To come together", "To select",
+                "To make selection", "To pick out", "To choose by vote", "To cast ballot",
+                "To assign job", "To allocate task", "To give responsibility", "To give out shares",
+                "To separate into parts", "To give portions", "To set aside for purpose", "To plan spending",
+                "To provide funds", "To put money for profit", "To get money for work", "To pay out money",
+                "To use carelessly", "To keep for future", "To keep supply", "To retain possession",
+                "To have in hand", "To possess", "To have as property", "To acquire for money",
+                "To buy something", "To gain possession", "To get something", "To receive something",
+                "To obtain something", "To succeed in reaching", "To complete successfully", "To finish",
+                "To bring to end", "To achieve goal", "To not succeed", "To fail to win",
+                "To fail to hit", "To keep away from", "To stop from happening", "To cease movement",
+                "To obstruct", "To create difficulties", "To cause to be late", "To stay in expectation",
+                "To remain in place", "To continue to be", "To keep going", "To continue for time",
+                "To suffer patiently", "To remain alive", "To have life", "To stop living",
+                "To come into existence", "To increase in size", "To become older", "To become fully developed",
+                "To grow or cause to grow", "To develop gradually", "To make or become different", "To change completely",
+                "To come to be", "To change direction", "To move from place", "To move toward",
+                "To go back", "To go back to place", "To visit again", "To enter again",
+                "To appear again", "To cease to be visible", "To disappear suddenly", "To lose brightness",
+                "To give out light", "To emit steady light", "To glitter", "To shine with flickering light",
+                "To shine suddenly", "To open and close eyes quickly", "To close one eye briefly", "To look fixedly",
+                "To stare angrily", "To direct eyes", "To perceive with eyes", "To watch carefully",
+                "To become aware of", "To see suddenly", "To discover presence", "To find unexpectedly",
+                "To discover something", "To find place of", "To place in position", "To put in location",
+                "To move to position", "To put in state", "To put down gently", "To be upright",
+                "To rest on buttocks", "To cease work", "To become less tense", "To be in state of rest",
+                "To rest for short time", "To sleep lightly", "To have visions during sleep", "To breathe noisily during sleep",
+                "To take air into lungs", "To breathe in", "To breathe out", "To emit long breath",
+                "To open mouth wide when tired", "To expel air from lungs suddenly", "To expel air from nose suddenly", "To make sound of amusement",
+                "To form pleased expression", "To smile broadly", "To form expression of displeasure", "To shed tears",
+                "To shed tears quietly", "To cry noisily", "To speak loudly", "To make loud cry",
+                "To speak very softly", "To speak in low voice", "To speak unclearly", "To talk informally",
+                "To engage in conversation", "To utter words", "To utter words", "To communicate information",
+                "To tell story", "To say aloud from memory", "To say again", "To make duplicate",
+                "To copy behavior", "To copy speech", "To go after", "To be in front",
+                "To show the way", "To give instructions", "To indicate with finger", "To cause to see",
+                "To show", "To give sign", "To move hand side to side", "To move head up and down",
+                "To move side to side", "To change direction", "To move around axis", "To turn quickly",
+                "To turn around", "To curve from straight", "To make longer", "To extend arm",
+                "To seize suddenly", "To have in hand", "To press firmly", "To apply force",
+                "To apply force away", "To apply force toward", "To raise up", " To let fall",
+                "To propel through air", "To intercept in air", "To strike with foot", "To come into contact with",
+                "To hit forcibly", "To hit repeatedly", "To engage in physical conflict", "To resist attack",
+                "To take violent action", "To keep safe from harm", "To defend from danger", "To rescue from harm",
+                "To keep from harm", "To give assistance", "To provide support", "To help someone"
+            ];
+            return meanings[num - 1] || "An action or doing word";
+        }
+        
+        // Pagination logic
+        const VERBS_PER_PAGE = 4;
+        let currentPage = 1;
+        const totalPages = Math.ceil(verbsData.length / VERBS_PER_PAGE);
+        
+        // DOM elements
+        const verbsContainer = document.getElementById('verbsContainer');
+        const currentPageElement = document.getElementById('currentPage');
+        const totalPagesElement = document.getElementById('totalPages');
+        const pageSelect = document.getElementById('pageSelect');
+        const paginationContainer = document.getElementById('pagination');
+        const firstBtn = document.getElementById('firstBtn');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const lastBtn = document.getElementById('lastBtn');
+        
+        // Initialize page select dropdown
+        function initializePageSelect() {
+            pageSelect.innerHTML = '';
+            for (let i = 1; i <= totalPages; i++) {
+                const option = document.createElement('option');
+                option.value = i;
+                option.textContent = `Page ${i}`;
+                pageSelect.appendChild(option);
+            }
+        }
+        
+        // Generate pagination numbers
+        function generatePagination() {
+            paginationContainer.innerHTML = '';
+            
+            // Always show first page
+            addPageNumber(1);
+            
+            // Calculate range around current page
+            let startPage = Math.max(2, currentPage - 2);
+            let endPage = Math.min(totalPages - 1, currentPage + 2);
+            
+            // Add ellipsis if needed
+            if (startPage > 2) {
+                const ellipsis = document.createElement('span');
+                ellipsis.textContent = '...';
+                ellipsis.className = 'page-number';
+                ellipsis.style.cursor = 'default';
+                ellipsis.style.pointerEvents = 'none';
+                paginationContainer.appendChild(ellipsis);
+            }
+            
+            // Add page numbers
+            for (let i = startPage; i <= endPage; i++) {
+                addPageNumber(i);
+            }
+            
+            // Add ellipsis if needed
+            if (endPage < totalPages - 1) {
+                const ellipsis = document.createElement('span');
+                ellipsis.textContent = '...';
+                ellipsis.className = 'page-number';
+                ellipsis.style.cursor = 'default';
+                ellipsis.style.pointerEvents = 'none';
+                paginationContainer.appendChild(ellipsis);
+            }
+            
+            // Always show last page if not already shown
+            if (totalPages > 1 && endPage < totalPages) {
+                addPageNumber(totalPages);
+            }
+        }
+        
+        function addPageNumber(pageNumber) {
+            const pageElement = document.createElement('span');
+            pageElement.textContent = pageNumber;
+            pageElement.className = 'page-number';
+            if (pageNumber === currentPage) {
+                pageElement.classList.add('active');
+            }
+            pageElement.addEventListener('click', () => {
+                goToPage(pageNumber);
+            });
+            paginationContainer.appendChild(pageElement);
+        }
+        
+        // Display verbs for current page
+        function displayVerbs() {
+            verbsContainer.innerHTML = '';
+            
+            const startIndex = (currentPage - 1) * VERBS_PER_PAGE;
+            const endIndex = startIndex + VERBS_PER_PAGE;
+            const pageVerbs = verbsData.slice(startIndex, endIndex);
+            
+            pageVerbs.forEach(verb => {
+                const verbCard = document.createElement('div');
+                verbCard.className = 'verb-card';
+                
+                verbCard.innerHTML = `
+                    <div class="verb-image">
+                        <div class="icon-container">
+                            <span class="vector-icon">${verb.icon}</span>
+                        </div>
+                    </div>
+                    <div class="verb-content">
+                        <div class="verb-english">
+                            ${verb.english}
+                            <button class="pronounce-btn" onclick="speakText('${verb.english}')" title="Click to hear pronunciation">
+                                <i class="fas fa-volume-up audio-icon"></i>
+                            </button>
+                        </div>
+                        <div class="verb-telugu">${verb.telugu}</div>
+                        <div class="pronunciation-container">
+                            <div class="verb-pronunciation">${verb.pronunciation}</div>
+                            <button class="pronounce-btn" onclick="speakText('${verb.english}')" title="Click to hear pronunciation">
+                                <i class="fas fa-volume-up audio-icon"></i>
+                            </button>
+                        </div>
+                        <div class="verb-meaning">${verb.meaning}</div>
+                    </div>
+                `;
+                
+                verbsContainer.appendChild(verbCard);
+            });
+            
+            // Update page info
+            currentPageElement.textContent = currentPage;
+            totalPagesElement.textContent = totalPages;
+            pageSelect.value = currentPage;
+            
+            // Update button states
+            updateButtonStates();
+            
+            // Regenerate pagination
+            generatePagination();
+        }
+        
+        // Update navigation button states
+        function updateButtonStates() {
+            firstBtn.disabled = currentPage === 1;
+            prevBtn.disabled = currentPage === 1;
+            nextBtn.disabled = currentPage === totalPages;
+            lastBtn.disabled = currentPage === totalPages;
+        }
+        
+        // Navigate to specific page
+        function goToPage(page) {
+            if (page < 1 || page > totalPages || page === currentPage) return;
+            
+            currentPage = page;
+            displayVerbs();
+            
+            // Scroll to top of verbs container
+            verbsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        
+        // Event listeners
+        firstBtn.addEventListener('click', () => goToPage(1));
+        prevBtn.addEventListener('click', () => goToPage(currentPage - 1));
+        nextBtn.addEventListener('click', () => goToPage(currentPage + 1));
+        lastBtn.addEventListener('click', () => goToPage(totalPages));
+        
+        pageSelect.addEventListener('change', (e) => {
+            goToPage(parseInt(e.target.value));
+        });
+        
+        // Initialize the application
+        function init() {
+            initializePageSelect();
+            displayVerbs();
+        }
+        
+        // Start the application
+        init();
+    </script>
+</body>
+</html>

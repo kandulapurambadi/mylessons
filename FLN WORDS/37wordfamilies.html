@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>37 English Word Families</title>
+		<h1 style="text-align: center;">కందులాపురం బడి </h1>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Anek Telugu', sans-serif;
+            background-color: #001f3f; /* navy blue */
+            color: white;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #3a6ea5;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: #7ec8e3;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #b0d4e3;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .nav-container {
+            background-color: #0a2d5c;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .nav-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #7ec8e3;
+            text-align: center;
+        }
+        
+        .word-family-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+        
+        .nav-link {
+            display: inline-block;
+            background-color: #1c4b82;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid #3a6ea5;
+        }
+        
+        .nav-link:hover {
+            background-color: #3a6ea5;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .content {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .word-family-card {
+            background-color: #0a2d5c;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .word-family-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .family-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #7ec8e3;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3a6ea5;
+            text-align: center;
+        }
+        
+        .word-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .word-item {
+            background-color: #1c4b82;
+            padding: 18px;
+            border-radius: 8px;
+            border-left: 4px solid #7ec8e3;
+        }
+        
+        .word {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #b0d4e3;
+        }
+        
+        .pronunciation {
+            font-size: 1.1rem;
+            color: #d1e7f5;
+            font-style: italic;
+        }
+        
+        .back-to-top {
+            display: block;
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        
+        .top-link {
+            background-color: #3a6ea5;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .top-link:hover {
+            background-color: #7ec8e3;
+            color: #001f3f;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #3a6ea5;
+            color: #b0d4e3;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 1100px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+            
+            .word-list {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .word-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .word-family-nav {
+                gap: 8px;
+            }
+            
+            .nav-link {
+                padding: 8px 14px;
+                font-size: 0.9rem;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        .pronunciation-note {
+            text-align: center;
+            font-style: italic;
+            color: #b0d4e3;
+            margin-top: 30px;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>37 English Word Families</h1>
+            <p class="subtitle">A comprehensive guide to English phonics word families based on the Wylie & Durrell research. Each family includes four example words with their pronunciation.</p>
+        </header>
+        
+        <div class="nav-container">
+            <h2 class="nav-title">Jump to Word Family</h2>
+            <div class="word-family-nav">
+                <!-- Navigation links will be generated by JavaScript -->
+            </div>
+        </div>
+        
+        <div class="content" id="content">
+            <!-- Word family cards will be generated by JavaScript -->
+        </div>
+        
+        <p class="pronunciation-note">Note: Pronunciation is shown in a simplified format. /ˈ/ indicates primary stress on the following syllable.</p>
+        
+        <div class="back-to-top">
+            <a href="#" class="top-link">Back to Top</a>
+        </div>
+        
+        <footer>
+            <p>Based on the 37 rime-based word families identified by Wylie & Durrell (1970)</p>
+            <p>Designed for phonics education and early reading development</p>
+        </footer>
+    </div>
+
+    <script>
+        // Data for all 37 word families with 4 words and pronunciations each
+        const wordFamilies = [
+            {
+                id: "ab",
+                name: "-ab Family",
+                words: [
+                    { word: "cab", pronunciation: "/kæb/" },
+                    { word: "lab", pronunciation: "/læb/" },
+                    { word: "dab", pronunciation: "/dæb/" },
+                    { word: "grab", pronunciation: "/ɡræb/" }
+                ]
+            },
+            {
+                id: "ack",
+                name: "-ack Family",
+                words: [
+                    { word: "back", pronunciation: "/bæk/" },
+                    { word: "sack", pronunciation: "/sæk/" },
+                    { word: "black", pronunciation: "/blæk/" },
+                    { word: "track", pronunciation: "/træk/" }
+                ]
+            },
+            {
+                id: "ad",
+                name: "-ad Family",
+                words: [
+                    { word: "bad", pronunciation: "/bæd/" },
+                    { word: "dad", pronunciation: "/dæd/" },
+                    { word: "sad", pronunciation: "/sæd/" },
+                    { word: "glad", pronunciation: "/ɡlæd/" }
+                ]
+            },
+            {
+                id: "ag",
+                name: "-ag Family",
+                words: [
+                    { word: "bag", pronunciation: "/bæɡ/" },
+                    { word: "tag", pronunciation: "/tæɡ/" },
+                    { word: "rag", pronunciation: "/ræɡ/" },
+                    { word: "flag", pronunciation: "/flæɡ/" }
+                ]
+            },
+            {
+                id: "am",
+                name: "-am Family",
+                words: [
+                    { word: "ham", pronunciation: "/hæm/" },
+                    { word: "jam", pronunciation: "/dʒæm/" },
+                    { word: "ram", pronunciation: "/ræm/" },
+                    { word: "slam", pronunciation: "/slæm/" }
+                ]
+            },
+            {
+                id: "an",
+                name: "-an Family",
+                words: [
+                    { word: "can", pronunciation: "/kæn/" },
+                    { word: "man", pronunciation: "/mæn/" },
+                    { word: "fan", pronunciation: "/fæn/" },
+                    { word: "plan", pronunciation: "/plæn/" }
+                ]
+            },
+            {
+                id: "ap",
+                name: "-ap Family",
+                words: [
+                    { word: "cap", pronunciation: "/kæp/" },
+                    { word: "map", pronunciation: "/mæp/" },
+                    { word: "nap", pronunciation: "/næp/" },
+                    { word: "clap", pronunciation: "/klæp/" }
+                ]
+            },
+            {
+                id: "at",
+                name: "-at Family",
+                words: [
+                    { word: "cat", pronunciation: "/kæt/" },
+                    { word: "bat", pronunciation: "/bæt/" },
+                    { word: "hat", pronunciation: "/hæt/" },
+                    { word: "flat", pronunciation: "/flæt/" }
+                ]
+            },
+            {
+                id: "ank",
+                name: "-ank Family",
+                words: [
+                    { word: "bank", pronunciation: "/bæŋk/" },
+                    { word: "tank", pronunciation: "/tæŋk/" },
+                    { word: "thank", pronunciation: "/θæŋk/" },
+                    { word: "sank", pronunciation: "/sæŋk/" }
+                ]
+            },
+            {
+                id: "ed",
+                name: "-ed Family",
+                words: [
+                    { word: "bed", pronunciation: "/bɛd/" },
+                    { word: "red", pronunciation: "/rɛd/" },
+                    { word: "fed", pronunciation: "/fɛd/" },
+                    { word: "sled", pronunciation: "/slɛd/" }
+                ]
+            },
+            {
+                id: "ell",
+                name: "-ell Family",
+                words: [
+                    { word: "bell", pronunciation: "/bɛl/" },
+                    { word: "sell", pronunciation: "/sɛl/" },
+                    { word: "well", pronunciation: "/wɛl/" },
+                    { word: "shell", pronunciation: "/ʃɛl/" }
+                ]
+            },
+            {
+                id: "en",
+                name: "-en Family",
+                words: [
+                    { word: "hen", pronunciation: "/hɛn/" },
+                    { word: "men", pronunciation: "/mɛn/" },
+                    { word: "ten", pronunciation: "/tɛn/" },
+                    { word: "pen", pronunciation: "/pɛn/" }
+                ]
+            },
+            {
+                id: "et",
+                name: "-et Family",
+                words: [
+                    { word: "jet", pronunciation: "/dʒɛt/" },
+                    { word: "net", pronunciation: "/nɛt/" },
+                    { word: "pet", pronunciation: "/pɛt/" },
+                    { word: "wet", pronunciation: "/wɛt/" }
+                ]
+            },
+            {
+                id: "est",
+                name: "-est Family",
+                words: [
+                    { word: "best", pronunciation: "/bɛst/" },
+                    { word: "nest", pronunciation: "/nɛst/" },
+                    { word: "rest", pronunciation: "/rɛst/" },
+                    { word: "test", pronunciation: "/tɛst/" }
+                ]
+            },
+            {
+                id: "ick",
+                name: "-ick Family",
+                words: [
+                    { word: "kick", pronunciation: "/kɪk/" },
+                    { word: "sick", pronunciation: "/sɪk/" },
+                    { word: "brick", pronunciation: "/brɪk/" },
+                    { word: "quick", pronunciation: "/kwɪk/" }
+                ]
+            },
+            {
+                id: "id",
+                name: "-id Family",
+                words: [
+                    { word: "kid", pronunciation: "/kɪd/" },
+                    { word: "lid", pronunciation: "/lɪd/" },
+                    { word: "hid", pronunciation: "/hɪd/" },
+                    { word: "slid", pronunciation: "/slɪd/" }
+                ]
+            },
+            {
+                id: "ig",
+                name: "-ig Family",
+                words: [
+                    { word: "big", pronunciation: "/bɪɡ/" },
+                    { word: "pig", pronunciation: "/pɪɡ/" },
+                    { word: "dig", pronunciation: "/dɪɡ/" },
+                    { word: "twig", pronunciation: "/twɪɡ/" }
+                ]
+            },
+            {
+                id: "ill",
+                name: "-ill Family",
+                words: [
+                    { word: "hill", pronunciation: "/hɪl/" },
+                    { word: "fill", pronunciation: "/fɪl/" },
+                    { word: "grill", pronunciation: "/ɡrɪl/" },
+                    { word: "chill", pronunciation: "/tʃɪl/" }
+                ]
+            },
+            {
+                id: "in",
+                name: "-in Family",
+                words: [
+                    { word: "pin", pronunciation: "/pɪn/" },
+                    { word: "win", pronunciation: "/wɪn/" },
+                    { word: "chin", pronunciation: "/tʃɪn/" },
+                    { word: "grin", pronunciation: "/ɡrɪn/" }
+                ]
+            },
+            {
+                id: "ink",
+                name: "-ink Family",
+                words: [
+                    { word: "pink", pronunciation: "/pɪŋk/" },
+                    { word: "sink", pronunciation: "/sɪŋk/" },
+                    { word: "think", pronunciation: "/θɪŋk/" },
+                    { word: "drink", pronunciation: "/drɪŋk/" }
+                ]
+            },
+            {
+                id: "ip",
+                name: "-ip Family",
+                words: [
+                    { word: "lip", pronunciation: "/lɪp/" },
+                    { word: "zip", pronunciation: "/zɪp/" },
+                    { word: "ship", pronunciation: "/ʃɪp/" },
+                    { word: "clip", pronunciation: "/klɪp/" }
+                ]
+            },
+            {
+                id: "it",
+                name: "-it Family",
+                words: [
+                    { word: "sit", pronunciation: "/sɪt/" },
+                    { word: "hit", pronunciation: "/hɪt/" },
+                    { word: "fit", pronunciation: "/fɪt/" },
+                    { word: "quit", pronunciation: "/kwɪt/" }
+                ]
+            },
+            {
+                id: "ob",
+                name: "-ob Family",
+                words: [
+                    { word: "job", pronunciation: "/dʒɑːb/" },
+                    { word: "knob", pronunciation: "/nɑːb/" },
+                    { word: "mob", pronunciation: "/mɑːb/" },
+                    { word: "rob", pronunciation: "/rɑːb/" }
+                ]
+            },
+            {
+                id: "ock",
+                name: "-ock Family",
+                words: [
+                    { word: "sock", pronunciation: "/sɑːk/" },
+                    { word: "rock", pronunciation: "/rɑːk/" },
+                    { word: "clock", pronunciation: "/klɑːk/" },
+                    { word: "block", pronunciation: "/blɑːk/" }
+                ]
+            },
+            {
+                id: "og",
+                name: "-og Family",
+                words: [
+                    { word: "dog", pronunciation: "/dɔːɡ/" },
+                    { word: "fog", pronunciation: "/fɑːɡ/" },
+                    { word: "frog", pronunciation: "/frɑːɡ/" },
+                    { word: "jog", pronunciation: "/dʒɑːɡ/" }
+                ]
+            },
+            {
+                id: "op",
+                name: "-op Family",
+                words: [
+                    { word: "hop", pronunciation: "/hɑːp/" },
+                    { word: "top", pronunciation: "/tɑːp/" },
+                    { word: "stop", pronunciation: "/stɑːp/" },
+                    { word: "shop", pronunciation: "/ʃɑːp/" }
+                ]
+            },
+            {
+                id: "ot",
+                name: "-ot Family",
+                words: [
+                    { word: "pot", pronunciation: "/pɑːt/" },
+                    { word: "hot", pronunciation: "/hɑːt/" },
+                    { word: "spot", pronunciation: "/spɑːt/" },
+                    { word: "knot", pronunciation: "/nɑːt/" }
+                ]
+            },
+            {
+                id: "uck",
+                name: "-uck Family",
+                words: [
+                    { word: "duck", pronunciation: "/dʌk/" },
+                    { word: "luck", pronunciation: "/lʌk/" },
+                    { word: "truck", pronunciation: "/trʌk/" },
+                    { word: "stuck", pronunciation: "/stʌk/" }
+                ]
+            },
+            {
+                id: "ug",
+                name: "-ug Family",
+                words: [
+                    { word: "bug", pronunciation: "/bʌɡ/" },
+                    { word: "rug", pronunciation: "/rʌɡ/" },
+                    { word: "hug", pronunciation: "/hʌɡ/" },
+                    { word: "plug", pronunciation: "/plʌɡ/" }
+                ]
+            },
+            {
+                id: "um",
+                name: "-um Family",
+                words: [
+                    { word: "gum", pronunciation: "/ɡʌm/" },
+                    { word: "drum", pronunciation: "/drʌm/" },
+                    { word: "hum", pronunciation: "/hʌm/" },
+                    { word: "sum", pronunciation: "/sʌm/" }
+                ]
+            },
+            {
+                id: "un",
+                name: "-un Family",
+                words: [
+                    { word: "run", pronunciation: "/rʌn/" },
+                    { word: "sun", pronunciation: "/sʌn/" },
+                    { word: "bun", pronunciation: "/bʌn/" },
+                    { word: "fun", pronunciation: "/fʌn/" }
+                ]
+            },
+            {
+                id: "unk",
+                name: "-unk Family",
+                words: [
+                    { word: "bunk", pronunciation: "/bʌŋk/" },
+                    { word: "skunk", pronunciation: "/skʌŋk/" },
+                    { word: "trunk", pronunciation: "/trʌŋk/" },
+                    { word: "sunk", pronunciation: "/sʌŋk/" }
+                ]
+            },
+            {
+                id: "ain",
+                name: "-ain Family",
+                words: [
+                    { word: "rain", pronunciation: "/reɪn/" },
+                    { word: "pain", pronunciation: "/peɪn/" },
+                    { word: "train", pronunciation: "/treɪn/" },
+                    { word: "chain", pronunciation: "/tʃeɪn/" }
+                ]
+            },
+            {
+                id: "ay",
+                name: "-ay Family",
+                words: [
+                    { word: "day", pronunciation: "/deɪ/" },
+                    { word: "play", pronunciation: "/pleɪ/" },
+                    { word: "say", pronunciation: "/seɪ/" },
+                    { word: "way", pronunciation: "/weɪ/" }
+                ]
+            },
+            {
+                id: "ice",
+                name: "-ice Family",
+                words: [
+                    { word: "mice", pronunciation: "/maɪs/" },
+                    { word: "rice", pronunciation: "/raɪs/" },
+                    { word: "nice", pronunciation: "/naɪs/" },
+                    { word: "slice", pronunciation: "/slaɪs/" }
+                ]
+            },
+            {
+                id: "ight",
+                name: "-ight Family",
+                words: [
+                    { word: "night", pronunciation: "/naɪt/" },
+                    { word: "light", pronunciation: "/laɪt/" },
+                    { word: "fight", pronunciation: "/faɪt/" },
+                    { word: "right", pronunciation: "/raɪt/" }
+                ]
+            },
+            {
+                id: "ine",
+                name: "-ine Family",
+                words: [
+                    { word: "nine", pronunciation: "/naɪn/" },
+                    { word: "pine", pronunciation: "/paɪn/" },
+                    { word: "line", pronunciation: "/laɪn/" },
+                    { word: "vine", pronunciation: "/vaɪn/" }
+                ]
+            }
+        ];
+
+        // Function to generate navigation links
+        function generateNavigation() {
+            const navContainer = document.querySelector('.word-family-nav');
+            
+            wordFamilies.forEach(family => {
+                const link = document.createElement('a');
+                link.href = `#${family.id}`;
+                link.className = 'nav-link';
+                link.textContent = family.name;
+                navContainer.appendChild(link);
+            });
+        }
+
+        // Function to generate word family cards
+        function generateWordFamilyCards() {
+            const contentContainer = document.getElementById('content');
+            
+            wordFamilies.forEach(family => {
+                const card = document.createElement('div');
+                card.className = 'word-family-card';
+                card.id = family.id;
+                
+                let wordItemsHTML = '';
+                family.words.forEach(wordItem => {
+                    wordItemsHTML += `
+                        <div class="word-item">
+                            <div class="word">${wordItem.word}</div>
+                            <div class="pronunciation">${wordItem.pronunciation}</div>
+                        </div>
+                    `;
+                });
+                
+                card.innerHTML = `
+                    <h3 class="family-title">${family.name}</h3>
+                    <div class="word-list">
+                        ${wordItemsHTML}
+                    </div>
+                `;
+                
+                contentContainer.appendChild(card);
+            });
+        }
+
+        // Initialize the page when it loads
+        document.addEventListener('DOMContentLoaded', function() {
+            generateNavigation();
+            generateWordFamilyCards();
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    if(this.getAttribute('href') === '#') return;
+                    
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+    <title>English Pronunciation Practice</title>
+	<h1 style="text-align: center;">కందులాపురం బడి </h1>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Anek Telugu', sans-serif;
+            background-color: navy;
+            color: white;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: #fff;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            color: #ccc;
+            font-weight: 300;
+        }
+        
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .words-section {
+            background-color: rgba(0, 0, 80, 0.8);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #fff;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .words-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .word-card {
+            background-color: rgba(30, 30, 120, 0.9);
+            border-radius: 10px;
+            padding: 25px 15px;
+            width: 160px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .word-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .word {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+        
+        .pronunciation {
+            font-size: 1.2rem;
+            color: #a3d5ff;
+            font-style: italic;
+            margin-bottom: 10px;
+            min-height: 30px;
+        }
+        
+        .ipa {
+            font-size: 1rem;
+            color: #ffcc66;
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-btn {
+            background-color: #1e3a8a;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-family: 'Anek Telugu', sans-serif;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .nav-btn:hover {
+            background-color: #2d4da8;
+        }
+        
+        .nav-btn:disabled {
+            background-color: #0f1f4d;
+            color: #888;
+            cursor: not-allowed;
+        }
+        
+        .page-indicator {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+        
+        .jump-section {
+            background-color: rgba(0, 0, 80, 0.8);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .jump-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        
+        .jump-select {
+            padding: 12px;
+            border-radius: 8px;
+            background-color: rgba(30, 30, 120, 0.9);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-family: 'Anek Telugu', sans-serif;
+            font-size: 1.1rem;
+            min-width: 200px;
+        }
+        
+        .jump-btn {
+            padding: 12px 24px;
+            background-color: #1e3a8a;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Anek Telugu', sans-serif;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .jump-btn:hover {
+            background-color: #2d4da8;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        .instructions {
+            font-size: 1.1rem;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ccc;
+            line-height: 1.8;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .word-card {
+                width: 140px;
+                padding: 20px 10px;
+            }
+            
+            .word {
+                font-size: 2rem;
+            }
+            
+            .navigation {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .word-card {
+                width: 120px;
+            }
+            
+            .word {
+                font-size: 1.8rem;
+            }
+            
+            .jump-controls {
+                flex-direction: column;
+            }
+            
+            .jump-select {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>English Pronunciation Practice</h1>
+            <p class="subtitle">Learn to pronounce English words correctly - 5 words at a time</p>
+        </header>
+        
+        <div class="content-wrapper">
+            <section class="words-section">
+                <h2 class="section-title">Pronunciation Words - Page <span id="current-page">1</span> of 17</h2>
+                
+                <p class="instructions">Click on any word to hear its pronunciation. Use the navigation buttons or jump menu to move between pages.</p>
+                
+                <div class="words-container" id="words-container">
+                    <!-- Words will be dynamically inserted here -->
+                </div>
+                
+                <div class="navigation">
+                    <button class="nav-btn" id="prev-btn" disabled>Previous Page</button>
+                    <span class="page-indicator">Page <span id="page-num">1</span> of 17</span>
+                    <button class="nav-btn" id="next-btn">Next Page</button>
+                </div>
+            </section>
+            
+            <section class="jump-section">
+                <h2 class="section-title">Jump to a Specific Page</h2>
+                <div class="jump-controls">
+                    <select class="jump-select" id="page-select">
+                        <!-- Options will be dynamically generated -->
+                    </select>
+                    <button class="jump-btn" id="jump-btn">Go to Page</button>
+                </div>
+            </section>
+        </div>
+        
+        <footer>
+            <p>English Pronunciation Practice Tool • Use this tool to improve your English pronunciation skills</p>
+        </footer>
+    </div>
+
+    <script>
+        // All words organized by pages
+        const wordPages = [
+            ["bat", "bell", "big", "box", "bus"],
+            ["dam", "dell", "dig", "dog", "dug"],
+            ["fat", "fell", "fit", "fox", "fun"],
+            ["gas", "gell", "gild", "god", "gun"],
+            ["hat", "hell", "hit", "hot", "hut"],
+            ["jam", "jen", "jim", "jog", "jug"],
+            ["kam", "kent", "kit", "knot", "kump"],
+            ["lap", "let", "lit", "lot", "lump"],
+            ["mat", "mend", "mist", "mot", "mug"],
+            ["nap", "nest", "nib", "not", "nut"],
+            ["pad", "pen", "pit", "pot", "pub"],
+            ["rat", "rent", "rig", "rod", "run"],
+            ["sat", "sell", "sit", "sock", "sun"],
+            ["tap", "tell", "tin", "toll", "tub"],
+            ["van", "vent", "vim", "von", "vub"],
+            ["wan", "went", "win", "won", "wund"],
+            ["yan", "yell", "ying", "yon", "yum"],
+            ["cat", "cell", "cit", "cot", "cup"]
+        ];
+        
+        // Pronunciation guide for common patterns
+        const pronunciationGuide = {
+            "a": "as in 'cat'",
+            "e": "as in 'bed'",
+            "i": "as in 'sit'",
+            "o": "as in 'hot'",
+            "u": "as in 'cup'",
+            "ell": "as in 'bell'",
+            "ig": "as in 'big'",
+            "ox": "as in 'box'",
+            "us": "as in 'bus'",
+            "at": "as in 'bat'",
+            "it": "as in 'fit'",
+            "ot": "as in 'hot'",
+            "ut": "as in 'hut'",
+            "en": "as in 'pen'",
+            "in": "as in 'tin'",
+            "un": "as in 'sun'",
+            "og": "as in 'dog'",
+            "ug": "as in 'dug'",
+            "im": "as in 'vim'",
+            "om": "as in 'from'",
+            "um": "as in 'gum'"
+        };
+        
+        // IPA pronunciation for some common words
+        const ipaPronunciations = {
+            "bat": "/bæt/",
+            "bell": "/bɛl/",
+            "big": "/bɪɡ/",
+            "box": "/bɑks/",
+            "bus": "/bʌs/",
+            "cat": "/kæt/",
+            "dog": "/dɔɡ/",
+            "fox": "/fɑks/",
+            "hat": "/hæt/",
+            "jam": "/dʒæm/",
+            "pen": "/pɛn/",
+            "rat": "/ræt/",
+            "sit": "/sɪt/",
+            "sun": "/sʌn/",
+            "hot": "/hɑt/",
+            "cup": "/kʌp/"
+        };
+        
+        // Current page index
+        let currentPage = 0;
+        
+        // DOM elements
+        const wordsContainer = document.getElementById('words-container');
+        const currentPageSpan = document.getElementById('current-page');
+        const pageNumSpan = document.getElementById('page-num');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const pageSelect = document.getElementById('page-select');
+        const jumpBtn = document.getElementById('jump-btn');
+        
+        // Initialize the page
+        function init() {
+            // Load first page of words
+            loadPage(currentPage);
+            
+            // Populate page select dropdown
+            for (let i = 0; i < wordPages.length; i++) {
+                const option = document.createElement('option');
+                option.value = i;
+                option.textContent = `Page ${i + 1}: ${wordPages[i].join(', ')}`;
+                pageSelect.appendChild(option);
+            }
+            
+            // Set up event listeners
+            prevBtn.addEventListener('click', goToPreviousPage);
+            nextBtn.addEventListener('click', goToNextPage);
+            jumpBtn.addEventListener('click', jumpToPage);
+            
+            // Update navigation buttons
+            updateNavigation();
+        }
+        
+        // Load a specific page of words
+        function loadPage(pageIndex) {
+            // Clear current words
+            wordsContainer.innerHTML = '';
+            
+            // Get words for this page
+            const words = wordPages[pageIndex];
+            
+            // Create word cards
+            words.forEach(word => {
+                const wordCard = document.createElement('div');
+                wordCard.className = 'word-card';
+                
+                // Get pronunciation hint
+                let pronunciationHint = getPronunciationHint(word);
+                
+                // Get IPA if available
+                const ipa = ipaPronunciations[word] || getGenericIPA(word);
+                
+                wordCard.innerHTML = `
+                    <div class="word">${word}</div>
+                    <div class="pronunciation">${pronunciationHint}</div>
+                    <div class="ipa">${ipa}</div>
+                `;
+                
+                // Add click event to speak the word
+                wordCard.addEventListener('click', () => speakWord(word));
+                
+                wordsContainer.appendChild(wordCard);
+            });
+            
+            // Update page indicators
+            currentPageSpan.textContent = pageIndex + 1;
+            pageNumSpan.textContent = pageIndex + 1;
+            
+            // Update navigation buttons
+            updateNavigation();
+            
+            // Update select dropdown
+            pageSelect.value = pageIndex;
+        }
+        
+        // Get pronunciation hint for a word
+        function getPronunciationHint(word) {
+            // Check for common endings first
+            for (const ending in pronunciationGuide) {
+                if (word.endsWith(ending)) {
+                    return `Rhymes with '${ending}' ${pronunciationGuide[ending]}`;
+                }
+            }
+            
+            // Check for common vowel sounds
+            if (word.includes('a') && word.length <= 4) {
+                return "Short 'a' sound as in 'cat'";
+            } else if (word.includes('e') && word.length <= 4) {
+                return "Short 'e' sound as in 'bed'";
+            } else if (word.includes('i') && word.length <= 4) {
+                return "Short 'i' sound as in 'sit'";
+            } else if (word.includes('o') && word.length <= 4) {
+                return "Short 'o' sound as in 'hot'";
+            } else if (word.includes('u') && word.length <= 4) {
+                return "Short 'u' sound as in 'cup'";
+            }
+            
+            return "Click to hear pronunciation";
+        }
+        
+        // Generate generic IPA for words without specific entry
+        function getGenericIPA(word) {
+            // Simple IPA approximation based on common patterns
+            if (word.endsWith('at')) return "/æt/";
+            if (word.endsWith('ell')) return "/ɛl/";
+            if (word.endsWith('ig')) return "/ɪɡ/";
+            if (word.endsWith('ox')) return "/ɑks/";
+            if (word.endsWith('us')) return "/ʌs/";
+            if (word.endsWith('it')) return "/ɪt/";
+            if (word.endsWith('ot')) return "/ɑt/";
+            if (word.endsWith('ut')) return "/ʌt/";
+            if (word.endsWith('en')) return "/ɛn/";
+            if (word.endsWith('in')) return "/ɪn/";
+            if (word.endsWith('un')) return "/ʌn/";
+            if (word.endsWith('og')) return "/ɑɡ/";
+            if (word.endsWith('ug')) return "/ʌɡ/";
+            
+            return "/.../"; // Generic placeholder
+        }
+        
+        // Speak a word using the Web Speech API
+        function speakWord(word) {
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(word);
+                utterance.lang = 'en-US';
+                utterance.rate = 0.8; // Slightly slower for learning
+                
+                // Highlight the word while speaking
+                const wordCards = document.querySelectorAll('.word-card');
+                wordCards.forEach(card => {
+                    if (card.querySelector('.word').textContent === word) {
+                        card.style.backgroundColor = 'rgba(60, 60, 150, 0.9)';
+                        setTimeout(() => {
+                            card.style.backgroundColor = 'rgba(30, 30, 120, 0.9)';
+                        }, 1000);
+                    }
+                });
+                
+                speechSynthesis.speak(utterance);
+            } else {
+                alert('Text-to-speech is not supported in your browser. Try Chrome or Edge.');
+            }
+        }
+        
+        // Go to the previous page
+        function goToPreviousPage() {
+            if (currentPage > 0) {
+                currentPage--;
+                loadPage(currentPage);
+            }
+        }
+        
+        // Go to the next page
+        function goToNextPage() {
+            if (currentPage < wordPages.length - 1) {
+                currentPage++;
+                loadPage(currentPage);
+            }
+        }
+        
+        // Jump to a specific page
+        function jumpToPage() {
+            const pageIndex = parseInt(pageSelect.value);
+            if (pageIndex >= 0 && pageIndex < wordPages.length) {
+                currentPage = pageIndex;
+                loadPage(currentPage);
+            }
+        }
+        
+        // Update navigation buttons state
+        function updateNavigation() {
+            prevBtn.disabled = currentPage === 0;
+            nextBtn.disabled = currentPage === wordPages.length - 1;
+        }
+        
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
